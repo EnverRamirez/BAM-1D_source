@@ -1,0 +1,2658 @@
+#(/opt/modules/3.2.6.6/bin/modulecmd bash load craype-hugepages64M)
+(cd .;cd Physics/Radiation/RRTMG/ext/rrtmg_sw;make -f Makefile.linux_gfortran)
+make[1]: Entering directory '/home/enver/modelos/BAM_1D/model/beta_source_enver3_NewRAS_transfer/Physics/Radiation/RRTMG/ext/rrtmg_sw'
+make[1]: 'rrtmg_sw.a' is up to date.
+make[1]: Leaving directory '/home/enver/modelos/BAM_1D/model/beta_source_enver3_NewRAS_transfer/Physics/Radiation/RRTMG/ext/rrtmg_sw'
+(cd .;cp -fp Physics/Radiation/RRTMG/ext/rrtmg_sw/*.o .)
+(cd .;echo ll.mod > Physics/Radiation/RRTMG/ext/rrtmg_sw/ll.mod ;cp -fp Physics/Radiation/RRTMG/ext/rrtmg_sw/*.mod .)
+(cd .;cd Physics/Radiation/RRTMG/ext/rrtmg_lw;make -f Makefile.linux_gfortran)
+make[1]: Entering directory '/home/enver/modelos/BAM_1D/model/beta_source_enver3_NewRAS_transfer/Physics/Radiation/RRTMG/ext/rrtmg_lw'
+make[1]: 'rrtmg_lw.a' is up to date.
+make[1]: Leaving directory '/home/enver/modelos/BAM_1D/model/beta_source_enver3_NewRAS_transfer/Physics/Radiation/RRTMG/ext/rrtmg_lw'
+(cd .;cp -fp Physics/Radiation/RRTMG/ext/rrtmg_lw/*.o .)
+(cd .;echo ll.mod > Physics/Radiation/RRTMG/ext/rrtmg_lw/ll.mod ;cp -fp Physics/Radiation/RRTMG/ext/rrtmg_lw/*.mod .)
+(cd .;make -f Makefile.linux_gfortran)
+make[1]: Entering directory '/home/enver/modelos/BAM_1D/model/beta_source_enver3_NewRAS_transfer'
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c    Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:1170:1:
+
+  dump  (i,6)   =coslat(i)
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:1171:1:
+
+  dump  (i,7)   =LOG(coslat(i) / (nlons(i)*latg))
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:2488:34:
+
+     REAL(kind=r8) :: CLFRAC, clvfr
+                                  1
+Warning: Unused variable ‘clvfr’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:2503:25:
+
+     REAL(kind=r8) ::  GMF
+                         1
+Warning: Unused variable ‘gmf’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:2467:22:
+
+     INTEGER    :: kblh, kblm, kblpmn, kmax, kmaxm1, kmaxp1, klcl, kmin, kmxb
+                      1
+Warning: Unused variable ‘kblh’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:2467:28:
+
+     INTEGER    :: kblh, kblm, kblpmn, kmax, kmaxm1, kmaxp1, klcl, kmin, kmxb
+                            1
+Warning: Unused variable ‘kblm’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:2171:24:
+
+                    lprnt       ,&!LOGICAL      , INTENT(IN     ) :: lprnt
+                        1
+Warning: Unused dummy argument ‘lprnt’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:1292:48:
+
+        &,                 nrcm,  rhc,  CALKBLMsk,  ud_mf, dd_mf,  det_mf,lprnt,dump)
+                                                1
+Warning: Unused dummy argument ‘calkblmsk’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:1289:54:
+
+        &,                 prsi,  prsl,   prsik,  prslk, phil,  phii       &
+                                                      1
+Warning: Unused dummy argument ‘prslk’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:832:72:
+
+                               t2,t3,q2,q3,ql2,ql3,qi2,qi3,u2,v2,ps2,dudt,dvdt,colrad,ustar,pblh,tke,mask2,&!,KPBL,ustar,&
+                                                                        1
+Warning: Unused dummy argument ‘dudt’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:832:77:
+
+                               t2,t3,q2,q3,ql2,ql3,qi2,qi3,u2,v2,ps2,dudt,dvdt,colrad,ustar,pblh,tke,mask2,&!,KPBL,ustar,&
+                                                                             1
+Warning: Unused dummy argument ‘dvdt’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:831:41:
+
+   SUBROUTINE Run_Cu_RAS_OnlyCld(microphys,nClass,nAeros,nCols,latco,ntrac, kMax,dt,kdt,&
+                                         1
+Warning: Unused dummy argument ‘microphys’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:931:25:
+
+     INTEGER       :: ncld=1
+                         1
+Warning: Unused variable ‘ncld’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:925:27:
+
+     INTEGER       :: i,k,nn
+                           1
+Warning: Unused variable ‘nn’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:930:25:
+
+     INTEGER       :: ntoz=0
+                         1
+Warning: Unused variable ‘ntoz’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:831:73:
+
+   SUBROUTINE Run_Cu_RAS_OnlyCld(microphys,nClass,nAeros,nCols,latco,ntrac, kMax,dt,kdt,&
+                                                                         1
+Warning: Unused dummy argument ‘ntrac’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:832:38:
+
+                               t2,t3,q2,q3,ql2,ql3,qi2,qi3,u2,v2,ps2,dudt,dvdt,colrad,ustar,pblh,tke,mask2,&!,KPBL,ustar,&
+                                      1
+Warning: Unused dummy argument ‘q2’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:832:53:
+
+                               t2,t3,q2,q3,ql2,ql3,qi2,qi3,u2,v2,ps2,dudt,dvdt,colrad,ustar,pblh,tke,mask2,&!,KPBL,ustar,&
+                                                     1
+Warning: Unused dummy argument ‘qi2’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:832:45:
+
+                               t2,t3,q2,q3,ql2,ql3,qi2,qi3,u2,v2,ps2,dudt,dvdt,colrad,ustar,pblh,tke,mask2,&!,KPBL,ustar,&
+                                             1
+Warning: Unused dummy argument ‘ql2’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:832:32:
+
+                               t2,t3,q2,q3,ql2,ql3,qi2,qi3,u2,v2,ps2,dudt,dvdt,colrad,ustar,pblh,tke,mask2,&!,KPBL,ustar,&
+                                1
+Warning: Unused dummy argument ‘t2’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:832:99:
+
+                               t2,t3,q2,q3,ql2,ql3,qi2,qi3,u2,v2,ps2,dudt,dvdt,colrad,ustar,pblh,tke,mask2,&!,KPBL,ustar,&
+                                                                                                   1
+Warning: Unused dummy argument ‘tke’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:934:28:
+
+     INTEGER       :: tracers
+                            1
+Warning: Unused variable ‘tracers’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:927:31:
+
+     LOGICAL       :: trans_trac       = .TRUE.    ! This is effective only for RAS
+                               1
+Warning: Unused variable ‘trans_trac’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:933:29:
+
+     INTEGER       :: trc_shft=0
+                             1
+Warning: Unused variable ‘trc_shft’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:497:25:
+
+     REAL(kind=r8) :: tem1
+                         1
+Warning: Unused variable ‘tem1’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:498:25:
+
+     REAL(kind=r8) :: tem2
+                         1
+Warning: Unused variable ‘tem2’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:422:34:
+
+     INTEGER       :: nrc,i,j,ij,ib,jb
+                                  1
+Warning: Unused variable ‘ib’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:422:37:
+
+     INTEGER       :: nrc,i,j,ij,ib,jb
+                                     1
+Warning: Unused variable ‘jb’ declared at (1) [-Wunused-variable]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:366:47:
+
+         SUBROUTINE random_number_t(harvest,stat)
+                                               1
+Warning: Unused dummy argument ‘stat’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:330:46:
+
+         SUBROUTINE random_setseed_t(inseed,rec)
+                                              1
+Warning: Unused dummy argument ‘rec’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/DeepConvection/OnlyCld/Cu_RAS_OnlyCld.f90:347:0:
+
+         SUBROUTINE random_number_i(harvest,inseed)
+ ^
+Warning: ‘random_number_i’ defined but not used [-Wunused-function]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Diagnostics/GridHistory.f90
+Diagnostics/GridHistory.f90:3:24:
+
+   USE Constants, ONLY :   &
+                        1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Diagnostics/GridHistory.f90:698:4:
+
+ 1635 FORMAT(' REQUESTED FIELD NUMBER',I4,' = ',A40/ &
+    1
+Warning: Label 1635 at (1) defined but not used
+Diagnostics/GridHistory.f90:697:4:
+
+ 1000 FORMAT(' I,J POINT LOCATIONS OUT OF RANGE OR OUT OF ORDER')
+    1
+Warning: Label 1000 at (1) defined but not used
+Diagnostics/GridHistory.f90:683:3:
+
+ 125 FORMAT(A40,I5,2X,I5,2X,A1,1X,A4)
+   1
+Warning: Label 125 at (1) defined but not used
+Diagnostics/GridHistory.f90:849:8:
+
+     isg=sg
+        1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Diagnostics/GridHistory.f90:872:21:
+
+           qwork(i,j)=dignos(i,j)
+                     1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Fields/FieldsPhysics.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c   Transform/Transform.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Initialization/Init.f90
+Initialization/Init.f90:98:37:
+
+        lonPerLat, wavesPerLat, gausPt, gausWg)
+                                     1
+Warning: Unused dummy argument ‘gauspt’ at (1) [-Wunused-dummy-argument]
+Initialization/Init.f90:98:45:
+
+        lonPerLat, wavesPerLat, gausPt, gausWg)
+                                             1
+Warning: Unused dummy argument ‘gauswg’ at (1) [-Wunused-dummy-argument]
+Initialization/Init.f90:97:26:
+
+          del_in, rhdifd_in, rhdift_in, &
+                          1
+Warning: Unused dummy argument ‘rhdifd_in’ at (1) [-Wunused-dummy-argument]
+Initialization/Init.f90:97:37:
+
+          del_in, rhdifd_in, rhdift_in, &
+                                     1
+Warning: Unused dummy argument ‘rhdift_in’ at (1) [-Wunused-dummy-argument]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Convection/DeepConvection/DeepConvection.f90
+Physics/Convection/DeepConvection/DeepConvection.f90:306:32:
+
+     REAL(KIND=r8) :: rain1(iMax)
+                                1
+Warning: Unused variable ‘rain1’ declared at (1) [-Wunused-variable]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:43:25:
+
+   REAL(KIND=r8) :: aa(15)
+                         1
+Warning: Unused PRIVATE module variable ‘aa’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:45:25:
+
+   REAL(KIND=r8) :: ac(15)
+                         1
+Warning: Unused PRIVATE module variable ‘ac’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:46:24:
+
+   REAL(KIND=r8) :: actop
+                        1
+Warning: Unused PRIVATE module variable ‘actop’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:44:25:
+
+   REAL(KIND=r8) :: ad(15)
+                         1
+Warning: Unused PRIVATE module variable ‘ad’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:60:25:
+
+   REAL(KIND=r8) :: const1
+                         1
+Warning: Unused PRIVATE module variable ‘const1’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:61:25:
+
+   REAL(KIND=r8) :: const2
+                         1
+Warning: Unused PRIVATE module variable ‘const2’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:50:22:
+
+   REAL(KIND=r8) :: ess
+                      1
+Warning: Unused PRIVATE module variable ‘ess’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:49:34:
+
+   REAL(KIND=r8) :: qfmthe(431,241)
+                                  1
+Warning: Unused PRIVATE module variable ‘qfmthe’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:58:24:
+
+   REAL(KIND=r8) :: rgrav
+                        1
+Warning: Unused PRIVATE module variable ‘rgrav’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:57:24:
+
+   REAL(KIND=r8) :: rlocp
+                        1
+Warning: Unused PRIVATE module variable ‘rlocp’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:59:23:
+
+   REAL(KIND=r8) :: rlrv
+                       1
+Warning: Unused PRIVATE module variable ‘rlrv’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:48:34:
+
+   REAL(KIND=r8) :: tfmthe(431,241)
+                                  1
+Warning: Unused PRIVATE module variable ‘tfmthe’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:47:34:
+
+   REAL(KIND=r8) :: thetae(151,181)
+                                  1
+Warning: Unused PRIVATE module variable ‘thetae’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Tied/Shall_Tied.f90:62:22:
+
+   REAL(KIND=r8) :: xx1
+                      1
+Warning: Unused PRIVATE module variable ‘xx1’ declared at (1) [-Wunused-value]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c    Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:42:25:
+
+   REAL(KIND=r8) :: aa(15)
+                         1
+Warning: Unused PRIVATE module variable ‘aa’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:44:25:
+
+   REAL(KIND=r8) :: ac(15)
+                         1
+Warning: Unused PRIVATE module variable ‘ac’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:45:24:
+
+   REAL(KIND=r8) :: actop
+                        1
+Warning: Unused PRIVATE module variable ‘actop’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:43:25:
+
+   REAL(KIND=r8) :: ad(15)
+                         1
+Warning: Unused PRIVATE module variable ‘ad’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:59:26:
+
+   REAL(KIND=r8)  :: const1
+                          1
+Warning: Unused PRIVATE module variable ‘const1’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:60:26:
+
+   REAL(KIND=r8)  :: const2
+                          1
+Warning: Unused PRIVATE module variable ‘const2’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:55:42:
+
+   REAL(KIND=r8) , ALLOCATABLE :: delmod(:)
+                                          1
+Warning: Unused PRIVATE module variable ‘delmod’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:52:42:
+
+   REAL(KIND=r8) , ALLOCATABLE :: dels  (:)
+                                          1
+Warning: Unused PRIVATE module variable ‘dels’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:49:22:
+
+   REAL(KIND=r8) :: ess
+                      1
+Warning: Unused PRIVATE module variable ‘ess’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:54:42:
+
+   REAL(KIND=r8) , ALLOCATABLE :: gammod(:)
+                                          1
+Warning: Unused PRIVATE module variable ‘gammod’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:53:42:
+
+   REAL(KIND=r8) , ALLOCATABLE :: gams  (:)
+                                          1
+Warning: Unused PRIVATE module variable ‘gams’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:50:18:
+
+   INTEGER :: kbase
+                  1
+Warning: Unused PRIVATE module variable ‘kbase’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:51:16:
+
+   INTEGER :: kcr
+                1
+Warning: Unused PRIVATE module variable ‘kcr’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:48:34:
+
+   REAL(KIND=r8) :: qfmthe(431,241)
+                                  1
+Warning: Unused PRIVATE module variable ‘qfmthe’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:57:24:
+
+   REAL(KIND=r8) :: rgrav
+                        1
+Warning: Unused PRIVATE module variable ‘rgrav’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:56:24:
+
+   REAL(KIND=r8) :: rlocp
+                        1
+Warning: Unused PRIVATE module variable ‘rlocp’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:58:23:
+
+   REAL(KIND=r8) :: rlrv
+                       1
+Warning: Unused PRIVATE module variable ‘rlrv’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:47:34:
+
+   REAL(KIND=r8) :: tfmthe(431,241)
+                                  1
+Warning: Unused PRIVATE module variable ‘tfmthe’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:46:34:
+
+   REAL(KIND=r8) :: thetae(151,181)
+                                  1
+Warning: Unused PRIVATE module variable ‘thetae’ declared at (1) [-Wunused-value]
+Physics/Convection/ShallowConvection/Souza/Shall_Souza.f90:61:23:
+
+   REAL(KIND=r8)  :: xx1
+                       1
+Warning: Unused PRIVATE module variable ‘xx1’ declared at (1) [-Wunused-value]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:5272:2:
+
+   FUNCTION DERFC(X)
+  1
+Warning: ‘derfc’ declared at (1) may shadow the intrinsic of the same name.  In order to call the intrinsic, explicit INTRINSIC declarations may be required. [-Wintrinsic-shadow]
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:4785:2:
+
+ 20  RETURN
+  1
+Warning: Label 20 at (1) defined but not used
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:5928:18:
+
+           itype = -ttrice
+                  1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:5858:49:
+
+        latvap  ,latice  ,rh2o    ,cpair   ,tmeltx   )
+                                                 1
+Warning: Unused dummy argument ‘tmeltx’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:7061:0:
+
+   SUBROUTINE vqsatd2_single(t       ,p       ,es      ,qs      ,dqsdt)
+ ^
+Warning: ‘vqsatd2_single’ defined but not used [-Wunused-function]
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:6912:0:
+
+   SUBROUTINE vqsatd2(t       ,p       ,es      ,qs      ,dqsdt      , &
+ ^
+Warning: ‘vqsatd2’ defined but not used [-Wunused-function]
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:6826:0:
+
+   SUBROUTINE vqsatd2_water_single(t       ,p       ,es      ,qs      ,dqsdt)
+ ^
+Warning: ‘vqsatd2_water_single’ defined but not used [-Wunused-function]
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:6740:0:
+
+   SUBROUTINE vqsatd2_water(t       ,p       ,es      ,qs      ,dqsdt      , &
+ ^
+Warning: ‘vqsatd2_water’ defined but not used [-Wunused-function]
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:6713:0:
+
+   SUBROUTINE vqsat_ice(t,p,qsat_ice,len)
+ ^
+Warning: ‘vqsat_ice’ defined but not used [-Wunused-function]
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:6679:0:
+
+   SUBROUTINE vqsat_water(t,p,qsat_water,len)
+ ^
+Warning: ‘vqsat_water’ defined but not used [-Wunused-function]
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:6517:0:
+
+   SUBROUTINE vqsatd_water(t       ,p       ,es      ,qs      ,gam      , &
+ ^
+Warning: ‘vqsatd_water’ defined but not used [-Wunused-function]
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:6245:0:
+
+   SUBROUTINE aqsatd(t       ,p       ,es      ,qs      ,gam     , &
+ ^
+Warning: ‘aqsatd’ defined but not used [-Wunused-function]
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:6177:0:
+
+   SUBROUTINE aqsat_water(t       ,p       ,es      ,qs        ,ii      , &
+ ^
+Warning: ‘aqsat_water’ defined but not used [-Wunused-function]
+Physics/Convection/ShallowConvection/UWShCu/Shall_UWShCu.f90:6111:0:
+
+   SUBROUTINE aqsat(t       ,p       ,es      ,qs        ,ii      , &
+ ^
+Warning: ‘aqsat’ defined but not used [-Wunused-function]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:3644:4:
+
+ 9000 FORMAT(' QNEG3 from ',a,':m=',i3,' lat/lchnk=',i3, &
+    1
+Warning: Label 9000 at (1) defined but not used
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:1835:2:
+
+ 50        CONTINUE                ! end of m=2,pcnst+pnats loop
+  1
+Warning: Label 50 at (1) defined but not used
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:1734:2:
+
+ 30        CONTINUE
+  1
+Warning: Label 30 at (1) defined but not used
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:1514:2:
+
+ 10        CONTINUE
+  1
+Warning: Label 10 at (1) defined but not used
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:2737:18:
+
+           itype = -ttrice
+                  1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:1929:19:
+
+        kctop1(i) = pver-cnt(i)
+                   1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:1930:19:
+
+        kcbot1(i) = pver-cnb(i)
+                   1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:930:21:
+
+          kctop1(i) = pver-cnt2(i)
+                     1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:931:21:
+
+          kcbot1(i) = pver-cnb2(i)
+                     1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:3666:16:
+
+     INTEGER :: m                                   ! tracer index
+                1
+Warning: Unused variable ‘m’ declared at (1) [-Wunused-variable]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:3546:26:
+
+   SUBROUTINE qneg3 (subnam  ,ncol    ,ncold   ,lver    ,lconst_beg  , &
+                          1
+Warning: Unused dummy argument ‘subnam’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:3450:20:
+
+        piln   , pmln   , pint   , pmid   , pdel   , rpdel  , &
+                    1
+Warning: Unused dummy argument ‘pmln’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:3356:20:
+
+        piln   , pmln   , pint   , pmid   , pdel   , rpdel  ,  &
+                    1
+Warning: Unused dummy argument ‘pmln’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:2666:49:
+
+   SUBROUTINE gestbl(tmn     ,tmx     ,trice   ,ip      ,epsil   , &
+                                                 1
+Warning: Unused dummy argument ‘ip’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:2667:49:
+
+        latvap  ,latice  ,rh2o    ,cpair   ,tmeltx   )
+                                                 1
+Warning: Unused dummy argument ‘tmeltx’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:2666:23:
+
+   SUBROUTINE gestbl(tmn     ,tmx     ,trice   ,ip      ,epsil   , &
+                       1
+Warning: Unused dummy argument ‘tmn’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:2666:32:
+
+   SUBROUTINE gestbl(tmn     ,tmx     ,trice   ,ip      ,epsil   , &
+                                1
+Warning: Unused dummy argument ‘tmx’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:2666:43:
+
+   SUBROUTINE gestbl(tmn     ,tmx     ,trice   ,ip      ,epsil   , &
+                                           1
+Warning: Unused dummy argument ‘trice’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:2434:27:
+
+     REAL(r8) :: rlat(pcols)
+                           1
+Warning: Unused variable ‘rlat’ declared at (1) [-Wunused-variable]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:2243:44:
+
+        pver, pverp,ppcnst, cnst_need_pdeldry)
+                                            1
+Warning: Unused dummy argument ‘cnst_need_pdeldry’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:1974:32:
+
+     REAL(r8) :: qq2 (pcols,pver)                     ! time step
+                                1
+Warning: Unused variable ‘qq2’ declared at (1) [-Wunused-variable]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:1169:12:
+
+        nstep   , &!integer, intent(in) :: nstep                ! current time step index
+            1
+Warning: Unused dummy argument ‘nstep’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:1326:16:
+
+     REAL(r8) sh1                 ! dummy arg in qhalf statement func.
+                1
+Warning: Unused variable ‘sh1’ declared at (1) [-Wunused-variable]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:1327:16:
+
+     REAL(r8) sh2                 ! dummy arg in qhalf statement func.
+                1
+Warning: Unused variable ‘sh2’ declared at (1) [-Wunused-variable]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:1328:18:
+
+     REAL(r8) shbs1               ! dummy arg in qhalf statement func.
+                  1
+Warning: Unused variable ‘shbs1’ declared at (1) [-Wunused-variable]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:1329:18:
+
+     REAL(r8) shbs2               ! dummy arg in qhalf statement func.
+                  1
+Warning: Unused variable ‘shbs2’ declared at (1) [-Wunused-variable]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:602:22:
+
+     INTEGER itim, ifld
+                      1
+Warning: Unused variable ‘ifld’ declared at (1) [-Wunused-variable]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:552:19:
+
+     INTEGER :: ilat                      ! global latitude index of a column
+                   1
+Warning: Unused variable ‘ilat’ declared at (1) [-Wunused-variable]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:551:19:
+
+     INTEGER :: ilon                      ! global longitude index of a column
+                   1
+Warning: Unused variable ‘ilon’ declared at (1) [-Wunused-variable]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:602:16:
+
+     INTEGER itim, ifld
+                1
+Warning: Unused variable ‘itim’ declared at (1) [-Wunused-variable]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:494:11:
+
+        ktop    , &!(1:iMax)             , &
+           1
+Warning: Unused dummy argument ‘ktop’ at (1) [-Wunused-dummy-argument]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:550:16:
+
+     INTEGER :: n,x
+                1
+Warning: Unused variable ‘n’ declared at (1) [-Wunused-variable]
+Physics/Convection/ShallowConvection/JHack/Shall_JHack.f90:550:18:
+
+     INTEGER :: n,x
+                  1
+Warning: Unused variable ‘x’ declared at (1) [-Wunused-variable]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c    Physics/Convection/ShallowConvection/MasFlux/Shall_MasFlux.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Convection/ShallowConvection/ShallowConvection.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Convection/MicroPhysics/LrgScl/Micro_LrgScl.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2         -c Physics/Convection/MicroPhysics/Hack/Micro_Hack.f90
+Physics/Convection/MicroPhysics/Hack/Micro_Hack.f90:4504:0:
+
+   SUBROUTINE cldclw(ncol    ,pcols,pverp,pver, zi      ,clwp    ,tpw     ,hl      )
+ ^
+Warning: ‘cldclw’ defined but not used [-Wunused-function]
+Physics/Convection/MicroPhysics/Hack/Micro_Hack.f90:4425:0:
+
+   SUBROUTINE cldovrlap(ncol    ,pcols,pverp,pver,pint    ,cld     ,nmxrgn  ,pmxrgn  )
+ ^
+Warning: ‘cldovrlap’ defined but not used [-Wunused-function]
+Physics/Convection/MicroPhysics/Hack/Micro_Hack.f90:4368:0:
+
+   SUBROUTINE cldems(ncol ,pcols ,pver  ,clwp    ,fice    ,rei     ,emis    )
+ ^
+Warning: ‘cldems’ defined but not used [-Wunused-function]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2         -c Physics/Convection/MicroPhysics/HWRF/Micro_HWRF.f90 
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2         -c Physics/Convection/MicroPhysics/Ferrier/Micro_Ferrier.f90 
+Physics/Convection/MicroPhysics/Ferrier/Micro_Ferrier.f90:160:43:
+
+   INTEGER            :: NSTATS(ITLO:ITHI,4)
+                                           1
+Warning: Unused PRIVATE module variable ‘nstats’ declared at (1) [-Wunused-value]
+Physics/Convection/MicroPhysics/Ferrier/Micro_Ferrier.f90:161:41:
+
+   REAL(kind=r8)      :: QMAX(ITLO:ITHI,5)
+                                         1
+Warning: Unused PRIVATE module variable ‘qmax’ declared at (1) [-Wunused-value]
+Physics/Convection/MicroPhysics/Ferrier/Micro_Ferrier.f90:162:42:
+
+   REAL(kind=r8)      :: QTOT(ITLO:ITHI,22)
+                                          1
+Warning: Unused PRIVATE module variable ‘qtot’ declared at (1) [-Wunused-value]
+Physics/Convection/MicroPhysics/Ferrier/Micro_Ferrier.f90:723:42:
+
+       REAL(KIND=r8)   :: DPCOL    (1:kMax)    !GFDL
+                                          1
+Warning: Unused variable ‘dpcol’ declared at (1) [-Wunused-variable]
+Physics/Convection/MicroPhysics/Ferrier/Micro_Ferrier.f90:493:9:
+
+       RHO           , &!real (kind=r8) :: RHO    (nCols,kMax)
+         1
+Warning: Unused dummy argument ‘rho’ at (1) [-Wunused-dummy-argument]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2         -c Physics/Convection/MicroPhysics/UKME/StratCloudFraction.f90 
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2         -c Physics/Convection/MicroPhysics/UKME/Micro_UKME.f90 
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2         -c Physics/Convection/MicroPhysics/MORRISON/Micro_MORR.f90 
+Physics/Convection/MicroPhysics/MORRISON/Micro_MORR.f90:4495:2:
+
+   REAL(KIND=r8) FUNCTION GAMMA(X)
+  1
+Warning: ‘gamma’ declared at (1) may shadow the intrinsic of the same name.  In order to call the intrinsic, explicit INTRINSIC declarations may be required. [-Wintrinsic-shadow]
+Physics/Convection/MicroPhysics/MORRISON/Micro_MORR.f90:5582:38:
+
+        m_complex_maxwellgarnett=CMPLX(-999.99d0,-999.99d0)
+                                      1
+Warning: Conversion from REAL(8) to default-kind COMPLEX(4) at (1) might lose precision, consider using the KIND argument [-Wconversion]
+Physics/Convection/MicroPhysics/MORRISON/Micro_MORR.f90:5531:22:
+
+     get_m_mix = CMPLX(1.0d0,0.0d0)
+                      1
+Warning: Conversion from REAL(8) to default-kind COMPLEX(4) at (1) might lose precision, consider using the KIND argument [-Wconversion]
+Physics/Convection/MicroPhysics/MORRISON/Micro_MORR.f90:5402:29:
+
+     get_m_mix_nested = CMPLX(1.0d0,0.0d0)
+                             1
+Warning: Conversion from REAL(8) to default-kind COMPLEX(4) at (1) might lose precision, consider using the KIND argument [-Wconversion]
+Physics/Convection/MicroPhysics/MORRISON/Micro_MORR.f90:5513:32:
+
+        get_m_mix_nested = CMPLX(1.0d0,0.0d0)    
+                                1
+Warning: Conversion from REAL(8) to default-kind COMPLEX(4) at (1) might lose precision, consider using the KIND argument [-Wconversion]
+Physics/Convection/MicroPhysics/MORRISON/Micro_MORR.f90:5373:17:
+
+          + CMPLX(0.0d0, (alfa/f + beta*f)) 
+                 1
+Warning: Conversion from REAL(8) to default-kind COMPLEX(4) at (1) might lose precision, consider using the KIND argument [-Wconversion]
+Physics/Convection/MicroPhysics/MORRISON/Micro_MORR.f90:5332:37:
+
+     m_complex_water_ray = SQRT(CMPLX(epsr,-epsi))
+                                     1
+Warning: Conversion from REAL(8) to default-kind COMPLEX(4) at (1) might lose precision, consider using the KIND argument [-Wconversion]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2         -c Physics/Convection/MicroPhysics/MORRISON_AERO/Micro_HugMorr.f90 
+Physics/Convection/MicroPhysics/MORRISON_AERO/Micro_HugMorr.f90:5228:2:
+
+   REAL(KIND=r8) FUNCTION GAMMA(X)
+  1
+Warning: ‘gamma’ declared at (1) may shadow the intrinsic of the same name.  In order to call the intrinsic, explicit INTRINSIC declarations may be required. [-Wintrinsic-shadow]
+Physics/Convection/MicroPhysics/MORRISON_AERO/Micro_HugMorr.f90:6321:38:
+
+        m_complex_maxwellgarnett=CMPLX(-999.99d0,-999.99d0)
+                                      1
+Warning: Conversion from REAL(8) to default-kind COMPLEX(4) at (1) might lose precision, consider using the KIND argument [-Wconversion]
+Physics/Convection/MicroPhysics/MORRISON_AERO/Micro_HugMorr.f90:6270:22:
+
+     get_m_mix = CMPLX(1.0d0,0.0d0)
+                      1
+Warning: Conversion from REAL(8) to default-kind COMPLEX(4) at (1) might lose precision, consider using the KIND argument [-Wconversion]
+Physics/Convection/MicroPhysics/MORRISON_AERO/Micro_HugMorr.f90:6141:29:
+
+     get_m_mix_nested = CMPLX(1.0d0,0.0d0)
+                             1
+Warning: Conversion from REAL(8) to default-kind COMPLEX(4) at (1) might lose precision, consider using the KIND argument [-Wconversion]
+Physics/Convection/MicroPhysics/MORRISON_AERO/Micro_HugMorr.f90:6252:32:
+
+        get_m_mix_nested = CMPLX(1.0d0,0.0d0)    
+                                1
+Warning: Conversion from REAL(8) to default-kind COMPLEX(4) at (1) might lose precision, consider using the KIND argument [-Wconversion]
+Physics/Convection/MicroPhysics/MORRISON_AERO/Micro_HugMorr.f90:6112:17:
+
+          + CMPLX(0.0d0, (alfa/f + beta*f)) 
+                 1
+Warning: Conversion from REAL(8) to default-kind COMPLEX(4) at (1) might lose precision, consider using the KIND argument [-Wconversion]
+Physics/Convection/MicroPhysics/MORRISON_AERO/Micro_HugMorr.f90:6071:37:
+
+     m_complex_water_ray = SQRT(CMPLX(epsr,-epsi))
+                                     1
+Warning: Conversion from REAL(8) to default-kind COMPLEX(4) at (1) might lose precision, consider using the KIND argument [-Wconversion]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2         -c Physics/Convection/MicroPhysics/MicroPhysics.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Convection/Convection.f90
+Physics/Convection/Convection.f90:1677:20:
+
+     INTEGER :: i,k,j,itr
+                    1
+Warning: Unused variable ‘j’ declared at (1) [-Wunused-variable]
+Physics/Convection/Convection.f90:1663:41:
+
+     REAL(KIND=r8) :: qc (1:nCols, 1:kMax)
+                                         1
+Warning: Unused variable ‘qc’ declared at (1) [-Wunused-variable]
+Physics/Convection/Convection.f90:1665:41:
+
+     REAL(KIND=r8) :: qi (1:nCols, 1:kMax)
+                                         1
+Warning: Unused variable ‘qi’ declared at (1) [-Wunused-variable]
+Physics/Convection/Convection.f90:1924:0:
+
+   SUBROUTINE qpart(kMax,iMax,t,ps,sl,q,ql,qi,opt)
+ ^
+Warning: ‘qpart’ defined but not used [-Wunused-function]
+Physics/Convection/Convection.f90:1861:0:
+
+   SUBROUTINE  qnegat2 (fq, fdq, rdt, del, iMax, kMax)
+ ^
+Warning: ‘qnegat2’ defined but not used [-Wunused-function]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2        -c Physics/Radiation/CliradTarasova/Rad_CliradTarasova.f90 
+Physics/Radiation/CliradTarasova/Rad_CliradTarasova.f90:3074:11:
+
+        uo3s      , & !  REAL(KIND=r8), INTENT(IN) :: uo3s (m,np)
+           1
+Warning: Unused dummy argument ‘uo3s’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/CliradTarasova/Rad_CliradTarasova.f90:2952:12:
+
+        uh2os   , & !REAL(KIND=r8), INTENT(IN) :: uh2os (m,np)
+            1
+Warning: Unused dummy argument ‘uh2os’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/CliradTarasova/Rad_CliradTarasova.f90:1787:9:
+
+        dp       , & !REAL(KIND=r8), INTENT(IN) :: dp     (m,np)   
+         1
+Warning: Unused dummy argument ‘dp’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/CliradTarasova/Rad_CliradTarasova.f90:1363:9:
+
+        dp        , & ! REAL(KIND=r8), INTENT(IN) :: dp      (m,np)  
+         1
+Warning: Unused dummy argument ‘dp’ at (1) [-Wunused-dummy-argument]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Radiation/COLA/Rad_COLA.f90
+Physics/Radiation/COLA/Rad_COLA.f90:4553:1:
+
+          oa(nsol+ik)=o3l(i,k)
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Physics/Radiation/COLA/Rad_COLA.f90:1261:22:
+
+           it(i,k)   = rawi(i,k)
+                      1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Radiation/Clirad/Rad_Clirad.f90 
+Physics/Radiation/Clirad/Rad_Clirad.f90:385:11:
+
+     nsol  =0.0_r8
+           1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Radiation/Clirad/Rad_Clirad.f90:88:47:
+
+  REAL(KIND=r8), PARAMETER, DIMENSION(2) :: aib3 = (/  3.33e-4_r8, 2.52_r8 /)
+                                               1
+Warning: Unused PRIVATE module variable ‘aib3’ declared at (1) [-Wunused-value]
+Physics/Radiation/Clirad/Rad_Clirad.f90:90:47:
+
+  REAL(KIND=r8), PARAMETER, DIMENSION(2) :: arb3 = (/  3.07e-3_r8, 0.00_r8 /)
+                                               1
+Warning: Unused PRIVATE module variable ‘arb3’ declared at (1) [-Wunused-value]
+Physics/Radiation/Clirad/Rad_Clirad.f90:89:47:
+
+  REAL(KIND=r8), PARAMETER, DIMENSION(2) :: awb3 = (/ -6.59e-3_r8, 1.65_r8 /)
+                                               1
+Warning: Unused PRIVATE module variable ‘awb3’ declared at (1) [-Wunused-value]
+Physics/Radiation/Clirad/Rad_Clirad.f90:2329:15:
+
+     INTEGER i,j
+               1
+Warning: Unused variable ‘j’ declared at (1) [-Wunused-variable]
+Physics/Radiation/Clirad/Rad_Clirad.f90:1179:15:
+
+     INTEGER i,j
+               1
+Warning: Unused variable ‘j’ declared at (1) [-Wunused-variable]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Radiation/Clirad/Rad_CliRadLW.f90
+Physics/Radiation/Clirad/Rad_CliRadLW.f90:151:11:
+
+        pl20      , &            !->   level pressure (pl)                               mb      m*(np+1)
+           1
+Warning: Unused dummy argument ‘pl20’ at (1) [-Wunused-dummy-argument]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Radiation/CliradTarasova/Rad_CliRadLWTarasova.f90
+Physics/Radiation/CliradTarasova/Rad_CliRadLWTarasova.f90:75:11:
+
+        pl20      , &
+           1
+Warning: Unused dummy argument ‘pl20’ at (1) [-Wunused-dummy-argument]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Radiation/UKMET/Rad_UKMO.f90
+Physics/Radiation/UKMET/Rad_UKMO.f90:26152:16:
+
+               , flux_term, flux_term &
+                1
+Warning: Same actual argument associated with INTENT(OUT) argument ‘flux_direct’ and INTENT(OUT) argument ‘flux_diffuse’ at (1)
+Physics/Radiation/UKMET/Rad_UKMO.f90:23468:17:
+
+             m1ls=real(1-2*mod((lsr-1),2), RealK)
+                 1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Radiation/UKMET/Rad_UKMO.f90:23513:23:
+
+                   m1ls=real(1-2*mod(lsr-1, 2), RealK)
+                       1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Radiation/UKMET/Rad_UKMO.f90:23533:17:
+
+             m1ls=real(1-2*mod((lsr-1),2), RealK)
+                 1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Radiation/UKMET/Rad_UKMO.f90:14018:37:
+
+     Spectrum%Cont%i_scale_fnc_cont = 0.0
+                                     1
+Warning: Possible change of value in conversion from REAL(4) to INTEGER(4) at (1) [-Wconversion]
+Physics/Radiation/UKMET/Rad_UKMO.f90:36801:13:
+
+            , ft_dummy, ft_dummy &
+             1
+Warning: Same actual argument associated with INTENT(OUT) argument ‘flux_up_tile’ and INTENT(OUT) argument ‘flux_up_blue_tile’ at (1)
+Physics/Radiation/UKMET/Rad_UKMO.f90:35598:24:
+
+                   aux = aux + clouds(i,k,j)
+                        1
+Warning: Possible change of value in conversion from REAL(8) to REAL(4) at (1) [-Wconversion]
+Physics/Radiation/UKMET/Rad_UKMO.f90:35736:13:
+
+            , ft_dummy, ft_dummy &
+             1
+Warning: Same actual argument associated with INTENT(OUT) argument ‘flux_up_tile’ and INTENT(OUT) argument ‘flux_up_blue_tile’ at (1)
+Physics/Radiation/UKMET/Rad_UKMO.f90:33769:28:
+
+         , l_list(nd_profile) &
+                            1
+Warning: Unused variable ‘l_list’ declared at (1) [-Wunused-variable]
+Physics/Radiation/UKMET/Rad_UKMO.f90:33771:12:
+
+         , ll
+            1
+Warning: Unused variable ‘ll’ declared at (1) [-Wunused-variable]
+Physics/Radiation/UKMET/Rad_UKMO.f90:33767:16:
+
+           n_list &
+                1
+Warning: Unused variable ‘n_list’ declared at (1) [-Wunused-variable]
+Physics/Radiation/UKMET/Rad_UKMO.f90:33615:35:
+
+          , phase_fnc_clr, omega_clr, tau_clr &
+                                   1
+Warning: Unused dummy argument ‘omega_clr’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:33615:24:
+
+          , phase_fnc_clr, omega_clr, tau_clr &
+                        1
+Warning: Unused dummy argument ‘phase_fnc_clr’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:33615:44:
+
+          , phase_fnc_clr, omega_clr, tau_clr &
+                                            1
+Warning: Unused dummy argument ‘tau_clr’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:32762:35:
+
+          , n_profile, i_layer_first, i_layer_last &
+                                   1
+Warning: Unused dummy argument ‘i_layer_first’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:32762:49:
+
+          , n_profile, i_layer_first, i_layer_last &
+                                                 1
+Warning: Unused dummy argument ‘i_layer_last’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:32762:20:
+
+          , n_profile, i_layer_first, i_layer_last &
+                    1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:32503:68:
+
+       SUBROUTINE triple_solar_source(n_profile, n_layer, n_cloud_top &
+                                                                    1
+Warning: Unused dummy argument ‘n_cloud_top’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:32503:55:
+
+       SUBROUTINE triple_solar_source(n_profile, n_layer, n_cloud_top &
+                                                       1
+Warning: Unused dummy argument ‘n_layer’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:31714:24:
+
+          , i_layer_first, i_layer_last &
+                        1
+Warning: Unused dummy argument ‘i_layer_first’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:31714:38:
+
+          , i_layer_first, i_layer_last &
+                                      1
+Warning: Unused dummy argument ‘i_layer_last’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:31713:45:
+
+       SUBROUTINE trans_source_coeff(n_profile &
+                                             1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:25138:48:
+
+       SUBROUTINE solar_source(n_profile, n_layer &
+                                                1
+Warning: Unused dummy argument ‘n_layer’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:24959:34:
+
+         , n_profile, i_layer_first, i_layer_last &
+                                  1
+Warning: Unused dummy argument ‘i_layer_first’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:24959:48:
+
+         , n_profile, i_layer_first, i_layer_last &
+                                                1
+Warning: Unused dummy argument ‘i_layer_last’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:24959:19:
+
+         , n_profile, i_layer_first, i_layer_last &
+                   1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:24789:34:
+
+         , n_profile, i_first_layer, i_last_layer &
+                                  1
+Warning: Unused dummy argument ‘i_first_layer’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:24789:48:
+
+         , n_profile, i_first_layer, i_last_layer &
+                                                1
+Warning: Unused dummy argument ‘i_last_layer’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:24789:19:
+
+         , n_profile, i_first_layer, i_last_layer &
+                   1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:24658:30:
+
+         , l_cloud, n_cloud_top, n_cloud_type &
+                              1
+Warning: Unused dummy argument ‘n_cloud_top’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:24663:44:
+
+         , nd_profile, nd_layer, nd_layer_clr, id_ct &
+                                            1
+Warning: Unused dummy argument ‘nd_layer_clr’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:22219:36:
+
+         , gas_mix_ratio, p, t, i_top &
+                                    1
+Warning: Unused dummy argument ‘i_top’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:22218:54:
+
+       SUBROUTINE scale_absorb(ierr, n_profile, n_layer &
+                                                      1
+Warning: Unused dummy argument ‘n_layer’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:22218:45:
+
+       SUBROUTINE scale_absorb(ierr, n_profile, n_layer &
+                                             1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:22138:23:
+
+         , i_layer_first, i_layer_last &
+                       1
+Warning: Unused dummy argument ‘i_layer_first’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:22138:37:
+
+         , i_layer_first, i_layer_last &
+                                     1
+Warning: Unused dummy argument ‘i_layer_last’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:22137:44:
+
+       SUBROUTINE rescale_tau_omega(n_profile &
+                                            1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:21968:23:
+
+         , i_layer_first, i_layer_last, n_direction, cos_sol_view &
+                       1
+Warning: Unused dummy argument ‘i_layer_first’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:21968:37:
+
+         , i_layer_first, i_layer_last, n_direction, cos_sol_view &
+                                     1
+Warning: Unused dummy argument ‘i_layer_last’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:21825:22:
+
+          , p, t, i_top &
+                      1
+Warning: Unused dummy argument ‘i_top’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:21824:53:
+
+       SUBROUTINE rescale_continuum(n_profile, n_layer, i_continuum &
+                                                     1
+Warning: Unused dummy argument ‘n_layer’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:21824:44:
+
+       SUBROUTINE rescale_continuum(n_profile, n_layer, i_continuum &
+                                            1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:18202:15:
+
+         , sec_0, sec_00, flux_inc_direct, flux_inc_down & !hmjb
+               1
+Warning: Unused dummy argument ‘sec_0’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:17623:23:
+
+         , zen_0, zen_00, flux_inc_down &
+                       1
+Warning: Unused dummy argument ‘zen_00’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:16706:49:
+
+       SUBROUTINE monochromatic_gas_flux(n_profile, n_layer &
+                                                 1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:15935:45:
+
+          , nd_profile, nd_layer, nd_layer_clr, id_ct &
+                                             1
+Warning: Unused dummy argument ‘nd_layer_clr’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:15060:51:
+
+       SUBROUTINE ir_source(n_profile, i_layer_first, i_layer_last &
+                                                   1
+Warning: Unused dummy argument ‘i_layer_first’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:15060:65:
+
+       SUBROUTINE ir_source(n_profile, i_layer_first, i_layer_last &
+                                                                 1
+Warning: Unused dummy argument ‘i_layer_last’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:15060:36:
+
+       SUBROUTINE ir_source(n_profile, i_layer_first, i_layer_last &
+                                    1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:12096:27:
+
+         , index(nd_profile)
+                           1
+Warning: Unused variable ‘index’ declared at (1) [-Wunused-variable]
+Physics/Radiation/UKMET/Rad_UKMO.f90:12082:12:
+
+         , ll &
+            1
+Warning: Unused variable ‘ll’ declared at (1) [-Wunused-variable]
+Physics/Radiation/UKMET/Rad_UKMO.f90:12094:17:
+
+         , n_index &
+                 1
+Warning: Unused variable ‘n_index’ declared at (1) [-Wunused-variable]
+Physics/Radiation/UKMET/Rad_UKMO.f90:11775:22:
+
+         , nd_layer_clr, id_ct &
+                      1
+Warning: Unused dummy argument ‘nd_layer_clr’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:11394:58:
+
+       SUBROUTINE gas_optical_properties(n_profile, n_layer &
+                                                          1
+Warning: Unused dummy argument ‘n_layer’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:11394:49:
+
+       SUBROUTINE gas_optical_properties(n_profile, n_layer &
+                                                 1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:10368:54:
+
+       SUBROUTINE diff_planck_source(n_profile, n_layer &
+                                                      1
+Warning: Unused dummy argument ‘n_layer’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:9980:62:
+
+       SUBROUTINE copy_clr_full(n_profile, n_layer, n_cloud_top &
+                                                              1
+Warning: Unused dummy argument ‘n_cloud_top’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:9980:49:
+
+       SUBROUTINE copy_clr_full(n_profile, n_layer, n_cloud_top &
+                                                 1
+Warning: Unused dummy argument ‘n_layer’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:9980:40:
+
+       SUBROUTINE copy_clr_full(n_profile, n_layer, n_cloud_top &
+                                        1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:9982:28:
+
+         , tau_clr, omega_clr, phase_fnc_clr &
+                            1
+Warning: Unused dummy argument ‘omega_clr’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:9982:43:
+
+         , tau_clr, omega_clr, phase_fnc_clr &
+                                           1
+Warning: Unused dummy argument ‘phase_fnc_clr’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:9982:17:
+
+         , tau_clr, omega_clr, phase_fnc_clr &
+                 1
+Warning: Unused dummy argument ‘tau_clr’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:8716:34:
+
+          , water_frac, p, t, i_top &
+                                  1
+Warning: Unused dummy argument ‘i_top’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:8715:53:
+
+       SUBROUTINE calculate_density(n_profile, n_layer, l_continuum &
+                                                     1
+Warning: Unused dummy argument ‘n_layer’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:8715:44:
+
+       SUBROUTINE calculate_density(n_profile, n_layer, l_continuum &
+                                            1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:4801:38:
+
+         , n_viewing_level, n_direction &
+                                      1
+Warning: Unused dummy argument ‘n_direction’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:4799:43:
+
+       SUBROUTINE augment_radiance(n_profile, n_layer &
+                                           1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:4801:25:
+
+         , n_viewing_level, n_direction &
+                         1
+Warning: Unused dummy argument ‘n_viewing_level’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:4632:42:
+
+          , n_profile, n_layer, n_cloud_top &
+                                          1
+Warning: Unused dummy argument ‘n_cloud_top’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:4632:29:
+
+          , n_profile, n_layer, n_cloud_top &
+                             1
+Warning: Unused dummy argument ‘n_layer’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:4632:20:
+
+          , n_profile, n_layer, n_cloud_top &
+                    1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:4464:21:
+
+         , n_direction, i_angular_integration, i_sph_mode &
+                     1
+Warning: Unused dummy argument ‘n_direction’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:4463:54:
+
+       SUBROUTINE adjust_ir_radiance(n_profile, n_layer, n_viewing_level &
+                                                      1
+Warning: Unused dummy argument ‘n_layer’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:4463:45:
+
+       SUBROUTINE adjust_ir_radiance(n_profile, n_layer, n_viewing_level &
+                                             1
+Warning: Unused dummy argument ‘n_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:4463:71:
+
+       SUBROUTINE adjust_ir_radiance(n_profile, n_layer, n_viewing_level &
+                                                                       1
+Warning: Unused dummy argument ‘n_viewing_level’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:4468:24:
+
+         , nd_2sg_profile, nd_flux_profile, nd_radiance_profile &
+                        1
+Warning: Unused dummy argument ‘nd_2sg_profile’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/UKMET/Rad_UKMO.f90:34583:8:
+
+     USE Options, ONLY: fNameSpecSW, nfspecsw, fNameSpecLW, nfspeclw
+        1
+Warning: Unused module variable ‘nfspeclw’ which has been explicitly imported at (1) [-Wunused-variable]
+Physics/Radiation/UKMET/Rad_UKMO.f90:34583:8:
+
+     USE Options, ONLY: fNameSpecSW, nfspecsw, fNameSpecLW, nfspeclw
+        1
+Warning: Unused module variable ‘nfspecsw’ which has been explicitly imported at (1) [-Wunused-variable]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Physics/Radiation/RRTMG/Rad_RRTMG.f90
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:786:10:
+
+        cld           ,clu       ,fice           ,             &
+          1
+Warning: Unused dummy argument ‘cld’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:786:25:
+
+        cld           ,clu       ,fice           ,             &
+                         1
+Warning: Unused dummy argument ‘clu’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:778:39:
+
+        Qe            ,O3        ,co2val        ,Tg          , &
+                                       1
+Warning: Unused dummy argument ‘co2val’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:777:35:
+
+        Pbot          ,Pmid      ,DP            ,Te          , &
+                                   1
+Warning: Unused dummy argument ‘dp’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:786:37:
+
+        cld           ,clu       ,fice           ,             &
+                                     1
+Warning: Unused dummy argument ‘fice’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:781:12:
+
+        imask         ,                                        &
+            1
+Warning: Unused dummy argument ‘imask’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:787:44:
+
+        rei_in           ,rel_in       ,lmixr  ,tauc   ,cicewp_in  ,cliqwp_in ,cldfprime_in                       )
+                                            1
+Warning: Unused dummy argument ‘lmixr’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:777:11:
+
+        Pbot          ,Pmid      ,DP            ,Te          , &
+           1
+Warning: Unused dummy argument ‘pbot’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:777:26:
+
+        Pbot          ,Pmid      ,DP            ,Te          , &
+                          1
+Warning: Unused dummy argument ‘pmid’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:279:10:
+
+        cld   , clu   , fice  , &
+          1
+Warning: Unused dummy argument ‘cld’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:279:18:
+
+        cld   , clu   , fice  , &
+                  1
+Warning: Unused dummy argument ‘clu’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:268:18:
+
+        pl20  , dpl   , tl    , ql    , &
+                  1
+Warning: Unused dummy argument ‘dpl’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:279:27:
+
+        cld   , clu   , fice  , &
+                           1
+Warning: Unused dummy argument ‘fice’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:265:11:
+
+        icld  , inalb , s0    , cosz  , &
+           1
+Warning: Unused dummy argument ‘icld’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:269:28:
+
+        o3l   , gps   , imask , tg    , &
+                            1
+Warning: Unused dummy argument ‘imask’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:265:20:
+
+        icld  , inalb , s0    , cosz  , &
+                    1
+Warning: Unused dummy argument ‘inalb’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:264:26:
+
+        ncols , kmax  , nls   , noz   , &
+                          1
+Warning: Unused dummy argument ‘nls’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:264:34:
+
+        ncols , kmax  , nls   , noz   , &
+                                  1
+Warning: Unused dummy argument ‘noz’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:268:11:
+
+        pl20  , dpl   , tl    , ql    , &
+           1
+Warning: Unused dummy argument ‘pl20’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RRTMG/Rad_RRTMG.f90:265:25:
+
+        icld  , inalb , s0    , cosz  , &
+                         1
+Warning: Unused dummy argument ‘s0’ at (1) [-Wunused-dummy-argument]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Utils/Watches.f90
+Utils/Watches.f90:45:65:
+
+   INTEGER                                      :: currWatch, ierr
+                                                                 1
+Warning: Unused PRIVATE module variable ‘ierr’ declared at (1) [-Wunused-value]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Radiation/RadiationDriver.f90
+Physics/Radiation/RadiationDriver.f90:2395:37:
+
+     REAL(KIND=r8) :: qsp (nCols,kMax)      ! saturation mixing ratio (kg/kg)
+                                     1
+Warning: Unused variable ‘qsp’ declared at (1) [-Wunused-variable]
+Physics/Radiation/RadiationDriver.f90:2394:37:
+
+     REAL(KIND=r8) :: tsp (nCols,kMax)      ! saturation temp (K)
+                                     1
+Warning: Unused variable ‘tsp’ declared at (1) [-Wunused-variable]
+Physics/Radiation/RadiationDriver.f90:2106:12:
+
+       delsig, gps)
+            1
+Warning: Unused dummy argument ‘delsig’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RadiationDriver.f90:2106:17:
+
+       delsig, gps)
+                 1
+Warning: Unused dummy argument ‘gps’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RadiationDriver.f90:2169:23:
+
+   INTEGER       :: i, k
+                       1
+Warning: Unused variable ‘k’ declared at (1) [-Wunused-variable]
+Physics/Radiation/RadiationDriver.f90:2100:29:
+
+       CldLiqWatPath,taud, rei       ,rel   ,emisd, &
+                             1
+Warning: Unused dummy argument ‘rei’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RadiationDriver.f90:2100:40:
+
+       CldLiqWatPath,taud, rei       ,rel   ,emisd, &
+                                        1
+Warning: Unused dummy argument ‘rel’ at (1) [-Wunused-dummy-argument]
+Physics/Radiation/RadiationDriver.f90:2168:37:
+
+   REAL(KIND=r8) :: bfr1(ncols), rfac2
+                                     1
+Warning: Unused variable ‘rfac2’ declared at (1) [-Wunused-variable]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Physics/Surface/Ocean/SLAB/SlabOceanModel.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Surface/Ocean/SeaFlux_UKME/Sfc_SeaFlux_UKME_Model.f90
+Physics/Surface/Ocean/SeaFlux_UKME/Sfc_SeaFlux_UKME_Model.f90:54:13:
+
+        &  N = ((T_high - T_low + (delta_T*0.5_r8))/delta_T) + 1.0_r8
+             1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Surface/Ocean/SeaFlux_UKME/Sfc_SeaFlux_UKME_Model.f90:3874:19:
+
+           itable = atable
+                   1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Surface/Ocean/SeaFlux_UKME/Sfc_SeaFlux_UKME_Model.f90:3880:22:
+
+           ITABLE_p1 = ATABLE_p1
+                      1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Surface/Ocean/SeaFlux_UKME/Sfc_SeaFlux_UKME_Model.f90:3940:19:
+
+           itable = atable
+                   1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Surface/Ocean/SeaFlux_WGFS/Sfc_SeaFlux_WGFS_Model.f90
+Physics/Surface/Ocean/SeaFlux_WGFS/Sfc_SeaFlux_WGFS_Model.f90:1316:9:
+
+     KW = W
+         1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Surface/Ocean/SeaFlux_WGFS/Sfc_SeaFlux_WGFS_Model.f90:1300:9:
+
+     KW = W
+         1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Surface/Ocean/SeaFlux_WGFS/Sfc_SeaFlux_WGFS_Model.f90:1285:9:
+
+     KW = W
+         1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Surface/Ocean/SeaFlux_COLA/Sfc_SeaFlux_COLA_Model.f90
+Physics/Surface/Ocean/SeaFlux_COLA/Sfc_SeaFlux_COLA_Model.f90:56:26:
+
+   INTEGER         :: nbase
+                          1
+Warning: Unused PRIVATE module variable ‘nbase’ declared at (1) [-Wunused-value]
+Physics/Surface/Ocean/SeaFlux_COLA/Sfc_SeaFlux_COLA_Model.f90:57:26:
+
+   INTEGER         :: nthin,nthinp
+                          1
+Warning: Unused PRIVATE module variable ‘nthin’ declared at (1) [-Wunused-value]
+Physics/Surface/Ocean/SeaFlux_COLA/Sfc_SeaFlux_COLA_Model.f90:57:33:
+
+   INTEGER         :: nthin,nthinp
+                                 1
+Warning: Unused PRIVATE module variable ‘nthinp’ declared at (1) [-Wunused-value]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Surface/Ocean/SeaIceFlux_WRF/Sfc_SeaIceFlux_WRF_Model.f90
+Physics/Surface/Ocean/SeaIceFlux_WRF/Sfc_SeaIceFlux_WRF_Model.f90:1542:27:
+
+     REAL(KIND=r8)    :: RCC
+                           1
+Warning: Unused variable ‘rcc’ declared at (1) [-Wunused-variable]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Surface/Ocean/Sfc_SeaFlux_Interface.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Surface/Land/SSiB/Sfc_SSiB.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Surface/Land/SiB2.5/Sfc_SiB2.f90
+Physics/Surface/Land/SiB2.5/Sfc_SiB2.f90:153:22:
+
+   INTEGER :: idatec(4)
+                      1
+Warning: Unused PRIVATE module variable ‘idatec’ declared at (1) [-Wunused-value]
+Physics/Surface/Land/SiB2.5/Sfc_SiB2.f90:265:17:
+
+   INTEGER SoilNum   ! soil type number
+                 1
+Warning: Unused PRIVATE module variable ‘soilnum’ declared at (1) [-Wunused-value]
+Physics/Surface/Land/SiB2.5/Sfc_SiB2.f90:151:34:
+
+   REAL(KIND=r8)           :: ztemp             !  height of temperature measurement (m)
+                                  1
+Warning: Unused PRIVATE module variable ‘ztemp’ declared at (1) [-Wunused-value]
+Physics/Surface/Land/SiB2.5/Sfc_SiB2.f90:152:34:
+
+   REAL(KIND=r8)           :: zwind             !  height of wind measurement (m)
+                                  1
+Warning: Unused PRIVATE module variable ‘zwind’ declared at (1) [-Wunused-value]
+Physics/Surface/Land/SiB2.5/Sfc_SiB2.f90:7608:18:
+
+             month2    ,month     , &
+                  1
+Warning: Unused dummy argument ‘month2’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Land/SiB2.5/Sfc_SiB2.f90:15607:0:
+
+   SUBROUTINE QSAT_mix (                                             &
+ ^
+Warning: ‘qsat_mix’ defined but not used [-Wunused-function]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/GravityWaveDrag/Alpert/GwddSchemeAlpert.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Physics/GravityWaveDrag/CAM/GwddSchemeCAM.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Physics/GravityWaveDrag/UKMET/GwddSchemeUSSP.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Physics/GravityWaveDrag/UKMET/GwddSchemeCPTEC.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Physics/GravityWaveDrag/ECMWF/Gwdd_ECMWF.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c   Physics/GravityWaveDrag/GwddDriver.f90
+Physics/GravityWaveDrag/GwddDriver.f90:448:39:
+
+                               chug,chvg,xtens,ytens )
+                                       1
+Warning: Unused dummy argument ‘chvg’ at (1) [-Wunused-dummy-argument]
+Physics/GravityWaveDrag/GwddDriver.f90:448:45:
+
+                               chug,chvg,xtens,ytens )
+                                             1
+Warning: Unused dummy argument ‘xtens’ at (1) [-Wunused-dummy-argument]
+Physics/GravityWaveDrag/GwddDriver.f90:448:51:
+
+                               chug,chvg,xtens,ytens )
+                                                   1
+Warning: Unused dummy argument ‘ytens’ at (1) [-Wunused-dummy-argument]
+Physics/GravityWaveDrag/GwddDriver.f90:75:82:
+
+   SUBROUTINE InitGWDDDriver(ibMax,jbMax,iMax,jMax,kmax,  si,sl,del,ibMaxPerJB,grid)
+                                                                                  1
+Warning: Unused dummy argument ‘grid’ at (1) [-Wunused-dummy-argument]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c    Physics/BoundaryLayer/MellorYamada0/Pbl_MellorYamada0.f90
+Physics/BoundaryLayer/MellorYamada0/Pbl_MellorYamada0.f90:440:40:
+
+     REAL(KIND=r8) :: Pbl_gDz(ncols,kmax) ! grav/Dz
+                                        1
+Warning: Unused variable ‘pbl_gdz’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/MellorYamada0/Pbl_MellorYamada0.f90:441:41:
+
+     REAL(KIND=r8) :: Pbl_IDz2(ncols,kmax) ! 1/Dz^2
+                                         1
+Warning: Unused variable ‘pbl_idz2’ declared at (1) [-Wunused-variable]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c    Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:7263:2:
+
+   TYPE(vdiff_selector) FUNCTION NOT(a)
+  1
+Warning: ‘not’ declared at (1) may shadow the intrinsic of the same name.  In order to call the intrinsic, explicit INTRINSIC declarations may be required. [-Wintrinsic-shadow]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:588:2:
+
+ 20     CONTINUE
+  1
+Warning: Label 20 at (1) defined but not used
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:2388:15:
+
+                jnk1d   , jnk1d    , jnk2d    , jnk1d        , errstring , &
+               1
+Warning: Same actual argument associated with INTENT(OUT) argument ‘tautmsx’ and INTENT(OUT) argument ‘tautmsy’ at (1)
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:2388:15:
+
+                jnk1d   , jnk1d    , jnk2d    , jnk1d        , errstring , &
+               1
+Warning: Same actual argument associated with INTENT(OUT) argument ‘tautmsx’ and INTENT(OUT) argument ‘topflx’ at (1)
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:2388:25:
+
+                jnk1d   , jnk1d    , jnk2d    , jnk1d        , errstring , &
+                         1
+Warning: Same actual argument associated with INTENT(OUT) argument ‘tautmsy’ and INTENT(OUT) argument ‘topflx’ at (1)
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:408:18:
+
+           itype = -ttrice
+                  1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:7504:19:
+
+     REAL(r8) ttrice              ! transition range from es over H2O to es over ice
+                   1
+Warning: Unused variable ‘ttrice’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:7328:16:
+
+     INTEGER :: m                                   ! tracer index
+                1
+Warning: Unused variable ‘m’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:6271:29:
+
+     INTEGER  :: i, k, m, icol                            ! Longitude, level, constituent indices
+                             1
+Warning: Unused variable ‘icol’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:6016:59:
+
+        pcols       , pver       , ncnst      , ncol     , t      , pmid   , pint        , &
+                                                           1
+Warning: Unused dummy argument ‘t’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5967:71:
+
+                               mw_dry_in, n_avog_in, gravit_in, cpair_in, kbtz_in )
+                                                                       1
+Warning: Unused dummy argument ‘cpair_in’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5967:61:
+
+                               mw_dry_in, n_avog_in, gravit_in, cpair_in, kbtz_in )
+                                                             1
+Warning: Unused dummy argument ‘gravit_in’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5967:80:
+
+                               mw_dry_in, n_avog_in, gravit_in, cpair_in, kbtz_in )
+                                                                                1
+Warning: Unused dummy argument ‘kbtz_in’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5966:80:
+
+   subroutine init_molec_diff( kind, ncnst, rair_in, ntop_molec_in, nbot_molec_in, &
+                                                                                1
+Warning: Unused dummy argument ‘nbot_molec_in’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5966:65:
+
+   subroutine init_molec_diff( kind, ncnst, rair_in, ntop_molec_in, nbot_molec_in, &
+                                                                 1
+Warning: Unused dummy argument ‘ntop_molec_in’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5966:50:
+
+   subroutine init_molec_diff( kind, ncnst, rair_in, ntop_molec_in, nbot_molec_in, &
+                                                  1
+Warning: Unused dummy argument ‘rair_in’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5943:32:
+
+   SUBROUTINE ubc_get_vals (lchnk,pcols, ncol,pverp, ntop_molec, pint, zi, msis_temp, ubc_mmr)
+                                1
+Warning: Unused dummy argument ‘lchnk’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5943:83:
+
+   SUBROUTINE ubc_get_vals (lchnk,pcols, ncol,pverp, ntop_molec, pint, zi, msis_temp, ubc_mmr)
+                                                                                   1
+Warning: Dummy argument ‘msis_temp’ at (1) was declared INTENT(OUT) but was not set [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5943:44:
+
+   SUBROUTINE ubc_get_vals (lchnk,pcols, ncol,pverp, ntop_molec, pint, zi, msis_temp, ubc_mmr)
+                                            1
+Warning: Unused dummy argument ‘ncol’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5943:62:
+
+   SUBROUTINE ubc_get_vals (lchnk,pcols, ncol,pverp, ntop_molec, pint, zi, msis_temp, ubc_mmr)
+                                                              1
+Warning: Unused dummy argument ‘ntop_molec’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5943:68:
+
+   SUBROUTINE ubc_get_vals (lchnk,pcols, ncol,pverp, ntop_molec, pint, zi, msis_temp, ubc_mmr)
+                                                                    1
+Warning: Unused dummy argument ‘pint’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5943:92:
+
+   SUBROUTINE ubc_get_vals (lchnk,pcols, ncol,pverp, ntop_molec, pint, zi, msis_temp, ubc_mmr)
+                                                                                            1
+Warning: Dummy argument ‘ubc_mmr’ at (1) was declared INTENT(OUT) but was not set [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5943:72:
+
+   SUBROUTINE ubc_get_vals (lchnk,pcols, ncol,pverp, ntop_molec, pint, zi, msis_temp, ubc_mmr)
+                                                                        1
+Warning: Unused dummy argument ‘zi’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5125:35:
+
+     LOGICAL               :: bottom                   ! True when CL base is at surface ( kb = pver + 1 )
+                                   1
+Warning: Unused variable ‘bottom’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5156:34:
+
+     REAL(r8)              :: dlint                    ! Interfacial layer thickness of CL external interfaces
+                                  1
+Warning: Unused variable ‘dlint’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5166:34:
+
+     REAL(r8)              :: l2rat                    ! Square of ratio of actual to initial CL (not used)
+                                  1
+Warning: Unused variable ‘l2rat’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:5165:33:
+
+     REAL(r8)              :: zbot                     ! Height of CL base
+                                 1
+Warning: Unused variable ‘zbot’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:4928:58:
+
+   SUBROUTINE exacol( pcols, pver, ncol, ri, bflxs, minpblh, zi, ktop, kbase, ncvfin ) 
+                                                          1
+Warning: Unused dummy argument ‘minpblh’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:4928:62:
+
+   SUBROUTINE exacol( pcols, pver, ncol, ri, bflxs, minpblh, zi, ktop, kbase, ncvfin ) 
+                                                              1
+Warning: Unused dummy argument ‘zi’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:1986:35:
+
+     INTEGER                    icol
+                                   1
+Warning: Unused variable ‘icol’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:1810:56:
+
+   SUBROUTINE init_vdiff( kind, ncnst, rair_in, gravit_in, fieldlist_wet, fieldlist_dry, errstring )
+                                                        1
+Warning: Unused dummy argument ‘gravit_in’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:1810:45:
+
+   SUBROUTINE init_vdiff( kind, ncnst, rair_in, gravit_in, fieldlist_wet, fieldlist_dry, errstring )
+                                             1
+Warning: Unused dummy argument ‘rair_in’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:1672:54:
+
+   SUBROUTINE init_eddy_diff( kind, pver, gravx, cpairx, rairx, zvirx, & 
+                                                      1
+Warning: Unused dummy argument ‘cpairx’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:1672:46:
+
+   SUBROUTINE init_eddy_diff( kind, pver, gravx, cpairx, rairx, zvirx, & 
+                                              1
+Warning: Unused dummy argument ‘gravx’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:1673:23:
+
+        latvapx, laticex, ntop_eddy, nbot_eddy, vkx )
+                       1
+Warning: Unused dummy argument ‘laticex’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:1673:14:
+
+        latvapx, laticex, ntop_eddy, nbot_eddy, vkx )
+              1
+Warning: Unused dummy argument ‘latvapx’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:1672:61:
+
+   SUBROUTINE init_eddy_diff( kind, pver, gravx, cpairx, rairx, zvirx, & 
+                                                             1
+Warning: Unused dummy argument ‘rairx’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:1673:50:
+
+        latvapx, laticex, ntop_eddy, nbot_eddy, vkx )
+                                                  1
+Warning: Unused dummy argument ‘vkx’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:1672:68:
+
+   SUBROUTINE init_eddy_diff( kind, pver, gravx, cpairx, rairx, zvirx, & 
+                                                                    1
+Warning: Unused dummy argument ‘zvirx’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:1653:57:
+
+   SUBROUTINE init_tms( kind, oro_in, karman_in, gravit_in, rair_in )
+                                                         1
+Warning: Unused dummy argument ‘gravit_in’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:1653:46:
+
+   SUBROUTINE init_tms( kind, oro_in, karman_in, gravit_in, rair_in )
+                                              1
+Warning: Unused dummy argument ‘karman_in’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:1653:66:
+
+   SUBROUTINE init_tms( kind, oro_in, karman_in, gravit_in, rair_in )
+                                                                  1
+Warning: Unused dummy argument ‘rair_in’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:833:26:
+
+     INTEGER  :: time_index                                          ! Time level index for physics buffer access
+                          1
+Warning: Unused variable ‘time_index’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:468:23:
+
+     INTEGER        :: l
+                       1
+Warning: Unused variable ‘l’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:467:23:
+
+     INTEGER        :: m
+                       1
+Warning: Unused variable ‘m’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:366:18:
+
+     logical  :: ip         ! Ice phase logical flag
+                  1
+Warning: Unused variable ‘ip’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/ParkBretherton/Pbl_UniversityWashington.f90:347:65:
+
+   SUBROUTINE Init_Pbl_UniversityWashington(pver_in,pcnst_in,ncnst,sig)
+                                                                 1
+Warning: Unused dummy argument ‘ncnst’ at (1) [-Wunused-dummy-argument]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c    Physics/BoundaryLayer/MellorYamada1/Pbl_MellorYamada1.f90
+Physics/BoundaryLayer/MellorYamada1/Pbl_MellorYamada1.f90:153:18:
+
+   INTEGER :: ITRMX=10 ! Iteration count for mixing length computation
+                  1
+Warning: Unused PRIVATE module variable ‘itrmx’ declared at (1) [-Wunused-value]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c    Physics/BoundaryLayer/PBL_Entrain.f90
+Physics/BoundaryLayer/PBL_Entrain.f90:97:36:
+
+   INTEGER, PARAMETER :: TABLESIZE  =  (TMAXTBL-TMINTBL)*DEGSUBS + 1
+                                    1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/BoundaryLayer/PBL_Entrain.f90:1785:37:
+
+     REAL(KIND=r8)    :: URAMP, TT, WW, DD, DQQ, QQ, TI, DQI, QI, PP
+                                     1
+Warning: Unused variable ‘ww’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/PBL_Entrain.f90:675:28:
+
+     REAL(KIND=r8)    :: TI,W  
+                            1
+Warning: Unused variable ‘w’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/PBL_Entrain.f90:527:28:
+
+     REAL(KIND=r8)    :: TI,W  
+                            1
+Warning: Unused variable ‘w’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/PBL_Entrain.f90:376:28:
+
+     REAL(KIND=r8)    :: TI,W  
+                            1
+Warning: Unused variable ‘w’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/PBL_Entrain.f90:233:28:
+
+     REAL(KIND=r8)    :: TI,W
+                            1
+Warning: Unused variable ‘w’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/PBL_Entrain.f90:4156:18:
+
+     INTEGER  :: kk
+                  1
+Warning: Unused variable ‘kk’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/PBL_Entrain.f90:3795:13:
+
+        u_star      , &! u_star         (1:IM)       , &
+             1
+Warning: Unused dummy argument ‘u_star’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/PBL_Entrain.f90:3003:34:
+
+     REAL(KIND=r8)     :: dslvcptmp
+                                  1
+Warning: Unused variable ‘dslvcptmp’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/PBL_Entrain.f90:2964:20:
+
+     INTEGER  :: itmp
+                    1
+Warning: Unused variable ‘itmp’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/PBL_Entrain.f90:2961:17:
+
+     INTEGER  :: j
+                 1
+Warning: Unused variable ‘j’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/PBL_Entrain.f90:2771:11:
+
+        kbot            ) ! INTENT(in ) , OPTIONAL :: kbot(:,:)
+           1
+Warning: Unused dummy argument ‘kbot’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/PBL_Entrain.f90:2974:24:
+
+     LOGICAL  :: keeplook
+                        1
+Warning: Unused variable ‘keeplook’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/PBL_Entrain.f90:2982:31:
+
+     REAL(KIND=r8)     :: maxinv
+                               1
+Warning: Unused variable ‘maxinv’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/PBL_Entrain.f90:2979:32:
+
+     REAL(KIND=r8)     :: maxqdot
+                                1
+Warning: Unused variable ‘maxqdot’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/PBL_Entrain.f90:2966:20:
+
+     INTEGER  :: nlat
+                    1
+Warning: Unused variable ‘nlat’ declared at (1) [-Wunused-variable]
+Physics/BoundaryLayer/PBL_Entrain.f90:2728:9:
+
+        qa             ,& !         INTENT(in)     :: qa         (:,:,:)                (1:IM,1:JM,1:LM)  
+         1
+Warning: Unused dummy argument ‘qa’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/PBL_Entrain.f90:2369:23:
+
+                  pmidm1     , &!REAL(KIND=r8), INTENT(IN   ) :: pmidm1    (IM,LM)          ! midpoint pressures
+                       1
+Warning: Unused dummy argument ‘pmidm1’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/PBL_Entrain.f90:2374:21:
+
+                  qliq       , &!REAL(KIND=r8), INTENT(IN   ) :: qliq      (IM,LM)        
+                     1
+Warning: Unused dummy argument ‘qliq’ at (1) [-Wunused-dummy-argument]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c     Physics/BoundaryLayer/HostlagBoville/Pbl_HostlagBoville.f90
+Physics/BoundaryLayer/HostlagBoville/Pbl_HostlagBoville.f90:395:0:
+
+   SUBROUTINE pbinti()
+ ^
+Warning: ‘pbinti’ defined but not used [-Wunused-function]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/BoundaryLayer/PblDriver.f90
+Physics/BoundaryLayer/PblDriver.f90:300:24:
+
+        KPBL        (i) =0.0_r8
+                        1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/BoundaryLayer/PblDriver.f90:127:50:
+
+        LwCoolRate,LwCoolRateC,cldtot,cldinv,cldsat  ,cldson ,&
+                                                  1
+Warning: Unused dummy argument ‘cldsat’ at (1) [-Wunused-dummy-argument]
+Physics/BoundaryLayer/PblDriver.f90:127:59:
+
+        LwCoolRate,LwCoolRateC,cldtot,cldinv,cldsat  ,cldson ,&
+                                                           1
+Warning: Unused dummy argument ‘cldson’ at (1) [-Wunused-dummy-argument]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Fiels.f90
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Fiels.f90:9426:8:
+
+   idx = a + tag_alfa*x
+        1
+Warning: Possible change of value in conversion from REAL(4) to INTEGER(4) at (1) [-Wconversion]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Fiels.f90:5078:13:
+
+           is=IBIStoSSIB(imask(lon,lat))
+             1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Fiels.f90:2090:13:
+
+     ibMask = iMaskIBIS
+             1
+Warning: Possible change of value in conversion from INTEGER(8) to INTEGER(4) at (1) [-Wconversion]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Fiels.f90:2091:16:
+
+     iMaskIBIS = 0.0_i8
+                1
+Warning: Possible change of value in conversion from REAL(8) to INTEGER(8) at (1) [-Wconversion]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Fiels.f90:4320:10:
+
+        fgq    , &! INTENT(IN        )
+          1
+Warning: Unused dummy argument ‘fgq’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Fiels.f90:3579:22:
+
+     INTEGER  :: i,j,jb,nLndPts,ierr,LRecIN
+                      1
+Warning: Unused variable ‘jb’ declared at (1) [-Wunused-variable]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Fiels.f90:1380:93:
+
+        fNameIBISDeltaTemp,fNameSandMask,fNameClayMask,fNameClimaTemp,RESTART,fgtmp,fgq ,si_in,sl_in    )
+                                                                                             1
+Warning: Unused dummy argument ‘si_in’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Fiels.f90:1380:99:
+
+        fNameIBISDeltaTemp,fNameSandMask,fNameClayMask,fNameClimaTemp,RESTART,fgtmp,fgq ,si_in,sl_in    )
+                                                                                                   1
+Warning: Unused dummy argument ‘sl_in’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Fiels.f90:10155:0:
+
+   SUBROUTINE const (arr   , & ! INTENT(OUT  )
+ ^
+Warning: ‘const’ defined but not used [-Wunused-function]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Surface/Land/IBIS2.6/Sfc_Ibis_BioGeoPhysics.f90
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_BioGeoPhysics.f90:4993:46:
+
+     REAL(KIND=r8) :: cdmaxa, cdmaxb, ctau,fmom,umom,vmom
+                                              1
+Warning: Unused variable ‘fmom’ declared at (1) [-Wunused-variable]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_BioGeoPhysics.f90:4993:51:
+
+     REAL(KIND=r8) :: cdmaxa, cdmaxb, ctau,fmom,umom,vmom
+                                                   1
+Warning: Unused variable ‘umom’ declared at (1) [-Wunused-variable]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_BioGeoPhysics.f90:4993:56:
+
+     REAL(KIND=r8) :: cdmaxa, cdmaxb, ctau,fmom,umom,vmom
+                                                        1
+Warning: Unused variable ‘vmom’ declared at (1) [-Wunused-variable]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_BioGeoPhysics.f90:12689:0:
+
+   SUBROUTINE scopy (nt       , & ! INTENT(IN   )
+ ^
+Warning: ‘scopy’ defined but not used [-Wunused-function]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_BioGeoPhysics.f90:12662:0:
+
+   SUBROUTINE const (arr   , & ! INTENT(OUT  )
+ ^
+Warning: ‘const’ defined but not used [-Wunused-function]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Surface/Land/IBIS2.6/Sfc_Ibis_BioGeoChemistry.f90
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_BioGeoChemistry.f90:4410:38:
+
+     REAL(KIND=r8) :: netmin_p  (npoi) ! net nitrogen mineralization
+                                      1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_BioGeoChemistry.f90:6109:1:
+
+         on_border = .true. 
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_BioGeoChemistry.f90:6117:1:
+
+      inside = .not.inside ! cross a segment
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_BioGeoChemistry.f90:6119:1:
+
+    END IF
+ 1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Interface.f90
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Interface.f90:5312:13:
+
+        month2         ,month          , &
+             1
+Warning: Unused dummy argument ‘month2’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Interface.f90:522:43:
+
+     REAL(kind=r8)   :: bstar_landice(nCols)
+                                           1
+Warning: Unused variable ‘bstar_landice’ declared at (1) [-Wunused-variable]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Interface.f90:520:42:
+
+     REAL(kind=r8)   :: evap_landice(nCols)
+                                          1
+Warning: Unused variable ‘evap_landice’ declared at (1) [-Wunused-variable]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Interface.f90:521:42:
+
+     REAL(kind=r8)   :: hflx_landice(nCols)
+                                          1
+Warning: Unused variable ‘hflx_landice’ declared at (1) [-Wunused-variable]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Interface.f90:519:43:
+
+     REAL(kind=r8)   :: qsurf_landice(nCols)
+                                           1
+Warning: Unused variable ‘qsurf_landice’ declared at (1) [-Wunused-variable]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Interface.f90:523:42:
+
+     REAL(kind=r8)   ::taux_landice (nCols)
+                                          1
+Warning: Unused variable ‘taux_landice’ declared at (1) [-Wunused-variable]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Interface.f90:524:42:
+
+     REAL(kind=r8)   ::tauy_landice (nCols)
+                                          1
+Warning: Unused variable ‘tauy_landice’ declared at (1) [-Wunused-variable]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Interface.f90:518:42:
+
+     REAL(kind=r8)   :: tsea_landice(nCols)
+                                          1
+Warning: Unused variable ‘tsea_landice’ declared at (1) [-Wunused-variable]
+Physics/Surface/Land/IBIS2.6/Sfc_Ibis_Interface.f90:525:43:
+
+     REAL(kind=r8)   :: ustar_landice(nCols)
+                                           1
+Warning: Unused variable ‘ustar_landice’ declared at (1) [-Wunused-variable]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Physics/Surface/Surface.f90
+Physics/Surface/Surface.f90:1718:24:
+
+        gt,sigki,qsurf,gq,ztn,rho,&
+                        1
+Warning: Unused dummy argument ‘gq’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Surface.f90:1718:28:
+
+        gt,sigki,qsurf,gq,ztn,rho,&
+                            1
+Warning: Unused dummy argument ‘ztn’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Surface.f90:1513:53:
+
+   SUBROUTINE CALC2MLAND(nCols,nmax,dtc3x,ustar,tm,tm0,tg,qm,qm0,um,vm,hc,hg,ec,eg,bps,ztn,&
+                                                     1
+Warning: Unused dummy argument ‘tm0’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Surface.f90:1340:32:
+
+             VELC100m,DirWind100m,imask    ,hc        ,hg       ,ect        , &
+                                1
+Warning: Unused dummy argument ‘dirwind100m’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Surface.f90:1339:53:
+
+             VELC2m  ,DirWind2m  ,VELC10m  ,DirWind10m,VELC50m  ,DirWind50m , &
+                                                     1
+Warning: Unused dummy argument ‘dirwind10m’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Surface.f90:1339:30:
+
+             VELC2m  ,DirWind2m  ,VELC10m  ,DirWind10m,VELC50m  ,DirWind50m , &
+                              1
+Warning: Unused dummy argument ‘dirwind2m’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Surface.f90:1339:74:
+
+             VELC2m  ,DirWind2m  ,VELC10m  ,DirWind10m,VELC50m  ,DirWind50m , &
+                                                                          1
+Warning: Unused dummy argument ‘dirwind50m’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Surface.f90:1340:20:
+
+             VELC100m,DirWind100m,imask    ,hc        ,hg       ,ect        , &
+                    1
+Warning: Unused dummy argument ‘velc100m’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Surface.f90:1339:40:
+
+             VELC2m  ,DirWind2m  ,VELC10m  ,DirWind10m,VELC50m  ,DirWind50m , &
+                                        1
+Warning: Unused dummy argument ‘velc10m’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Surface.f90:1339:61:
+
+             VELC2m  ,DirWind2m  ,VELC10m  ,DirWind10m,VELC50m  ,DirWind50m , &
+                                                             1
+Warning: Unused dummy argument ‘velc50m’ at (1) [-Wunused-dummy-argument]
+Physics/Surface/Surface.f90:2307:0:
+
+   SUBROUTINE Reduced_q (nCols     ,speed  ,ustar   , &
+ ^
+Warning: ‘reduced_q’ defined but not used [-Wunused-function]
+Physics/Surface/Surface.f90:2125:0:
+
+   SUBROUTINE Reduced_wind(nCols     ,speed  ,ustar , &
+ ^
+Warning: ‘reduced_wind’ defined but not used [-Wunused-function]
+Physics/Surface/Surface.f90:1856:0:
+
+   SUBROUTINE Reduced_temp (nCols     ,speed  ,ustar , &
+ ^
+Warning: ‘reduced_temp’ defined but not used [-Wunused-function]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c   Physics/Surface/sfcpbl/Sfc_MellorYamada0.f90
+Physics/Surface/sfcpbl/Sfc_MellorYamada0.f90:53:26:
+
+   INTEGER         :: nbase
+                          1
+Warning: Unused PRIVATE module variable ‘nbase’ declared at (1) [-Wunused-value]
+Physics/Surface/sfcpbl/Sfc_MellorYamada0.f90:54:26:
+
+   INTEGER         :: nthin,nthinp
+                          1
+Warning: Unused PRIVATE module variable ‘nthin’ declared at (1) [-Wunused-value]
+Physics/Surface/sfcpbl/Sfc_MellorYamada0.f90:54:33:
+
+   INTEGER         :: nthin,nthinp
+                                 1
+Warning: Unused PRIVATE module variable ‘nthinp’ declared at (1) [-Wunused-value]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c    Physics/Surface/sfcpbl/Sfc_MellorYamada1.f90
+Physics/Surface/sfcpbl/Sfc_MellorYamada1.f90:268:29:
+
+   INTEGER         :: my_nbase
+                             1
+Warning: Unused PRIVATE module variable ‘my_nbase’ declared at (1) [-Wunused-value]
+Physics/Surface/sfcpbl/Sfc_MellorYamada1.f90:269:29:
+
+   INTEGER         :: my_nthin,my_nthinp
+                             1
+Warning: Unused PRIVATE module variable ‘my_nthin’ declared at (1) [-Wunused-value]
+Physics/Surface/sfcpbl/Sfc_MellorYamada1.f90:269:39:
+
+   INTEGER         :: my_nthin,my_nthinp
+                                       1
+Warning: Unused PRIVATE module variable ‘my_nthinp’ declared at (1) [-Wunused-value]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c   Physics/Surface/SfcPBLDriver.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c Physics/PhysicsDriver.f90
+Physics/PhysicsDriver.f90:489:42:
+
+     INTEGER                         :: ins
+                                          1
+Warning: Unused variable ‘ins’ declared at (1) [-Wunused-variable]
+Physics/PhysicsDriver.f90:490:44:
+
+     INTEGER (KIND=i8)               :: kprox
+                                            1
+Warning: Unused variable ‘kprox’ declared at (1) [-Wunused-variable]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Dynamics/GridDynamics.f90
+Dynamics/GridDynamics.f90:426:14:
+
+  END IF       
+              1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1400:39:
+
+   REAL(KIND=r8)   , INTENT(IN   ) :: Y  (LEV)
+                                       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1401:39:
+
+   REAL(KIND=r8)   , INTENT(OUT  ) :: F  (AN )
+                                       1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1405:19:
+
+   INTEGER(KIND=i8)   :: j
+                   1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1406:19:
+
+   INTEGER(KIND=i8)   :: I
+                   1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1407:18:
+
+   REAL(KIND=r8)     :: undef=0.0 !undef=-9.99e33
+                  1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1408:18:
+
+   REAL(KIND=r8)     :: a(AN)
+                  1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1409:18:
+
+   REAL(KIND=r8)     :: b(AN)
+                  1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1410:18:
+
+   REAL(KIND=r8)     :: c(AN)
+                  1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1414:14:
+
+   DO j=1,AN,1        
+              1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1418:21:
+
+    DO 12 I=1,LEV-2,1       
+                     1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1420:72:
+
+     IF((XLEV(I)-XLEV(I+1)).NE.0.0.AND.(XLEV(I)-XLEV(I+2)).NE. 0.0 )THEN      
+                                                                        1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1423:3:
+
+           (XLEV(I)-XLEV(I+2)))
+   1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1426:3:
+
+           (XLEV(I+1)-XLEV(I+2)))
+   1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1429:3:
+
+           (XLEV(I+2)-XLEV(I+1)))
+   1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1432:59:
+
+                +b(j)*((alt(j)-XLEV(I))*(alt(j)-XLEV(I+2))) & 
+                                                           1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1435:13:
+
+        ENDIF       
+             1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1436:12:
+
+       ENDIF      
+            1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1437:10:
+
+ 12  ENDDO 
+          1
+Warning: Nonconforming tab character at (1) [-Wtabs]
+Dynamics/GridDynamics.f90:1478:40:
+
+  SUBROUTINE LocalJulian_Year(yis,mis,dis,his,yi,mi,di,hi,tod,rxday)
+                                        1
+Warning: Unused dummy argument ‘dis’ at (1) [-Wunused-dummy-argument]
+Dynamics/GridDynamics.f90:1478:44:
+
+  SUBROUTINE LocalJulian_Year(yis,mis,dis,his,yi,mi,di,hi,tod,rxday)
+                                            1
+Warning: Unused dummy argument ‘his’ at (1) [-Wunused-dummy-argument]
+Dynamics/GridDynamics.f90:1478:36:
+
+  SUBROUTINE LocalJulian_Year(yis,mis,dis,his,yi,mi,di,hi,tod,rxday)
+                                    1
+Warning: Unused dummy argument ‘mis’ at (1) [-Wunused-dummy-argument]
+Dynamics/GridDynamics.f90:1284:22:
+
+  LOGICAL    :: DynTend  =.TRUE.  ! .FALSE. !Associado somente com a tendencia
+                      1
+Warning: Unused variable ‘dyntend’ declared at (1) [-Wunused-variable]
+Dynamics/GridDynamics.f90:1277:42:
+
+  INTEGER(KIND=i8)                  :: ierr
+                                          1
+Warning: Unused variable ‘ierr’ declared at (1) [-Wunused-variable]
+Dynamics/GridDynamics.f90:1269:39:
+
+  INTEGER(KIND=i8)                  :: k
+                                       1
+Warning: Unused variable ‘k’ declared at (1) [-Wunused-variable]
+Dynamics/GridDynamics.f90:1254:42:
+
+                        ibmax,kmax,path,tod,jdt,xM,colrad)
+                                          1
+Warning: Unused dummy argument ‘tod’ at (1) [-Wunused-dummy-argument]
+Dynamics/GridDynamics.f90:1118:22:
+
+  LOGICAL    :: DynTend  =.TRUE.  ! .FALSE. !Associado somente com a tendencia
+                      1
+Warning: Unused variable ‘dyntend’ declared at (1) [-Wunused-variable]
+Dynamics/GridDynamics.f90:1111:42:
+
+  INTEGER(KIND=i8)                  :: ierr
+                                          1
+Warning: Unused variable ‘ierr’ declared at (1) [-Wunused-variable]
+Dynamics/GridDynamics.f90:1101:39:
+
+  INTEGER(KIND=i8)                  :: k
+                                       1
+Warning: Unused variable ‘k’ declared at (1) [-Wunused-variable]
+Dynamics/GridDynamics.f90:893:42:
+
+  INTEGER(KIND=i8)                  :: ierr
+                                          1
+Warning: Unused variable ‘ierr’ declared at (1) [-Wunused-variable]
+Dynamics/GridDynamics.f90:870:39:
+
+  INTEGER(KIND=i8)                  :: k
+                                       1
+Warning: Unused variable ‘k’ declared at (1) [-Wunused-variable]
+Dynamics/GridDynamics.f90:666:42:
+
+  INTEGER(KIND=i8)                  :: ierr
+                                          1
+Warning: Unused variable ‘ierr’ declared at (1) [-Wunused-variable]
+Dynamics/GridDynamics.f90:643:39:
+
+  INTEGER(KIND=i8)                  :: k
+                                       1
+Warning: Unused variable ‘k’ declared at (1) [-Wunused-variable]
+Dynamics/GridDynamics.f90:454:39:
+
+  INTEGER(KIND=i8)                  :: k
+                                       1
+Warning: Unused variable ‘k’ declared at (1) [-Wunused-variable]
+Dynamics/GridDynamics.f90:124:9:
+
+        dt    , ifday , tod    , &
+         1
+Warning: Unused dummy argument ‘dt’ at (1) [-Wunused-dummy-argument]
+Dynamics/GridDynamics.f90:128:17:
+
+        ktp   , ib    , jb     , &
+                 1
+Warning: Unused dummy argument ‘ib’ at (1) [-Wunused-dummy-argument]
+Dynamics/GridDynamics.f90:127:17:
+
+        jdt   , kt    , ktm    , &
+                 1
+Warning: Unused dummy argument ‘kt’ at (1) [-Wunused-dummy-argument]
+Dynamics/GridDynamics.f90:127:26:
+
+        jdt   , kt    , ktm    , &
+                          1
+Warning: Unused dummy argument ‘ktm’ at (1) [-Wunused-dummy-argument]
+Dynamics/GridDynamics.f90:128:10:
+
+        ktp   , ib    , jb     , &
+          1
+Warning: Unused dummy argument ‘ktp’ at (1) [-Wunused-dummy-argument]
+Dynamics/GridDynamics.f90:122:26:
+
+        glnpm , colrad, rcl    , &
+                          1
+Warning: Unused dummy argument ‘rcl’ at (1) [-Wunused-dummy-argument]
+Dynamics/GridDynamics.f90:126:28:
+
+        kMax  , ibLim , slagr  , &
+                            1
+Warning: Unused dummy argument ‘slagr’ at (1) [-Wunused-dummy-argument]
+Dynamics/GridDynamics.f90:206:53:
+
+     REAL(KIND=r8)                           :: xxday2 !Enver
+                                                     1
+Warning: Unused variable ‘xxday2’ declared at (1) [-Wunused-variable]
+Dynamics/GridDynamics.f90:1442:0:
+
+  SUBROUTINE LocalJulian(yi,mi,di,hi,tod,rxday)
+ ^
+Warning: ‘localjulian’ defined but not used [-Wunused-function]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Dynamics/TimeFilter.f90
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Dynamics/TimeStepSL.f90
+Dynamics/TimeStepSL.f90:98:29:
+
+                        enhdif,dt,kt,ktm,ktp, jdt,ifday, tod, idate, idatec,&
+                             1
+Warning: Unused dummy argument ‘enhdif’ at (1) [-Wunused-dummy-argument]
+Dynamics/TimeStepSL.f90:97:72:
+
+   SUBROUTINE TimeStep (fb1, fa, fb, slagr, nlnminit, inirestart, idiaten, &
+                                                                        1
+Warning: Unused dummy argument ‘idiaten’ at (1) [-Wunused-dummy-argument]
+Dynamics/TimeStepSL.f90:136:52:
+
+     INTEGER                                    :: ij
+                                                    1
+Warning: Unused variable ‘ij’ declared at (1) [-Wunused-variable]
+Dynamics/TimeStepSL.f90:97:63:
+
+   SUBROUTINE TimeStep (fb1, fa, fb, slagr, nlnminit, inirestart, idiaten, &
+                                                               1
+Warning: Unused dummy argument ‘inirestart’ at (1) [-Wunused-dummy-argument]
+Dynamics/TimeStepSL.f90:122:63:
+
+     CHARACTER(len=4)         , SAVE                     :: siph = 'NO  '
+                                                               1
+Warning: Unused variable ‘siph’ declared at (1) [-Wunused-variable]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -c  Main/ModelSL.f90
+Main/ModelSL.f90:777:3:
+
+ 102 FORMAT(' DT=',G13.6,' IFDAY=',I10,' TOD=',G13.6, &
+   1
+Warning: Label 102 at (1) defined but not used
+Main/ModelSL.f90:769:1:
+
+ 7 FORMAT( ' SIMPLIFIED PHYSICS OPTION IN EFFECT'/ &
+ 1
+Warning: Label 7 at (1) defined but not used
+Main/ModelSL.f90:498:38:
+
+     CALL SOND_IN(path_in,gasr,cp,kmax,si,si,ci,del, sl ,cl ,rpi)
+                                      1
+Warning: Same actual argument associated with INTENT(IN) argument ‘si’ and INTENT(OUT) argument ‘sigml’ at (1)
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘cq_in’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘ct_in’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘exdf’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘exdh’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘extf’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘exth’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘exts’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘fnameinput0’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘fnameinput1’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘fnameorgvar’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘fnametg3zrl’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:269:27:
+
+   INTEGER              :: i
+                           1
+Warning: Unused variable ‘i’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:284:32:
+
+   INTEGER              :: iafday
+                                1
+Warning: Unused variable ‘iafday’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:268:30:
+
+   INTEGER              :: iend
+                              1
+Warning: Unused variable ‘iend’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:301:30:
+
+   INTEGER              :: ierr
+                              1
+Warning: Unused variable ‘ierr’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:270:28:
+
+   INTEGER              :: ij
+                            1
+Warning: Unused variable ‘ij’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:17:6:
+
+   USE Sizes, ONLY:            &
+      1
+Warning: Unused module variable ‘ijmaxgauqua’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:17:6:
+
+   USE Sizes, ONLY:            &
+      1
+Warning: Unused module variable ‘iperijb’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:291:31:
+
+   INTEGER              :: irstl
+                               1
+Warning: Unused variable ‘irstl’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:266:32:
+
+   INTEGER              :: istart
+                                1
+Warning: Unused variable ‘istart’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:285:39:
+
+   REAL(KIND=r8)                 :: itod
+                                       1
+Warning: Unused variable ‘itod’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:287:31:
+
+   INTEGER              :: jaday
+                               1
+Warning: Unused variable ‘jaday’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:286:30:
+
+   INTEGER              :: jahr
+                              1
+Warning: Unused variable ‘jahr’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:288:31:
+
+   INTEGER              :: jamon
+                               1
+Warning: Unused variable ‘jamon’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:289:30:
+
+   INTEGER              :: jayr
+                              1
+Warning: Unused variable ‘jayr’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:17:6:
+
+   USE Sizes, ONLY:            &
+      1
+Warning: Unused module variable ‘jperijb’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:325:27:
+
+   INTEGER              :: k 
+                           1
+Warning: Unused variable ‘k’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:272:27:
+
+   INTEGER              :: l
+                           1
+Warning: Unused variable ‘l’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:259:42:
+
+   REAL(KIND=r8)   , ALLOCATABLE :: lsmk(:)
+                                          1
+Warning: Unused variable ‘lsmk’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:292:40:
+
+   LOGICAL(KIND=i8)              :: masbd
+                                        1
+Warning: Unused variable ‘masbd’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:293:31:
+
+   INTEGER              :: mascd
+                               1
+Warning: Unused variable ‘mascd’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘maxtid’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:273:32:
+
+   INTEGER              :: ncount
+                                1
+Warning: Unused variable ‘ncount’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘nfcnv0’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘nfcnv1’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:326:32:
+
+   INTEGER              :: nffcst   
+                                1
+Warning: Unused variable ‘nffcst’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘nfsibi’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘nfsibo’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘nfvar’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:111:7:
+
+   USE  Options, ONLY:          &
+       1
+Warning: Unused module variable ‘nlcs’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:9:6:
+
+   USE FieldsPhysics, ONLY:     &
+      1
+Warning: Unused module variable ‘prcc’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:9:6:
+
+   USE FieldsPhysics, ONLY:     &
+      1
+Warning: Unused module variable ‘prct’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:315:44:
+
+   REAL(KIND=r8)   , ALLOCATABLE :: rlsm(:,:)
+                                            1
+Warning: Unused variable ‘rlsm’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:9:6:
+
+   USE FieldsPhysics, ONLY:     &
+      1
+Warning: Unused module variable ‘seamask’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:9:6:
+
+   USE FieldsPhysics, ONLY:     &
+      1
+Warning: Unused module variable ‘temp2m’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:298:39:
+
+   REAL(KIND=r8)                 :: totm 
+                                       1
+Warning: Unused variable ‘totm’ declared at (1) [-Wunused-variable]
+Main/ModelSL.f90:9:6:
+
+   USE FieldsPhysics, ONLY:     &
+      1
+Warning: Unused module variable ‘tracermix’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:9:6:
+
+   USE FieldsPhysics, ONLY:     &
+      1
+Warning: Unused module variable ‘umes2m’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:9:6:
+
+   USE FieldsPhysics, ONLY:     &
+      1
+Warning: Unused module variable ‘xice’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:9:6:
+
+   USE FieldsPhysics, ONLY:     &
+      1
+Warning: Unused module variable ‘xland’ which has been explicitly imported at (1) [-Wunused-variable]
+Main/ModelSL.f90:9:6:
+
+   USE FieldsPhysics, ONLY:     &
+      1
+Warning: Unused module variable ‘z0’ which has been explicitly imported at (1) [-Wunused-variable]
+gfortran -O0 -g  -fbounds-check -Waliasing -Wall -fbacktrace -ffpe-trap=invalid,overflow,zero -fconvert=big-endian  -finit-real=nan -finit-integer=nan -ffree-line-length-none  -O0 -Warray-bounds  -ffast-math -funroll-loops -ftree-vectorizer-verbose=2       -o ParModel_MPI  AddTend.o Constants.o CloudOpticalProperty.o Cu_Grellens.o Cu_Grellens_CPTEC.o Cu_Kuolcl.o Cu_RAS.o Cu_ZhangMcFarlane.o Cu_RAS3PHASE.o Cu_RAS_OnlyCld.o Convection.o DeepConvection.o Diagnostics.o Transform.o FieldsDynamics.o FieldsPhysics.o GridHistory.o GridDynamics.o GwddSchemeAlpert.o Gwdd_ECMWF.o GwddSchemeCAM.o GwddSchemeCPTEC.o GwddSchemeUSSP.o GwddDriver.o InputOutput.o Options.o PhysicsDriver.o PhysicalFunctions.o Init.o MicroPhysics.o Micro_LrgScl.o Micro_Hack.o Micro_HWRF.o Micro_Ferrier.o Micro_MORR.o Micro_HugMorr.o Micro_UKME.o ModelSL.o Mod_GET_PRS.o Parallelism.o PBL_Entrain.o Pbl_HostlagBoville.o Pbl_MellorYamada0.o Pbl_MellorYamada1.o Pbl_UniversityWashington.o PblDriver.o RadiationDriver.o Rad_COLA.o Rad_Clirad.o Rad_CliRadLW.o Rad_CliradTarasova.o Rad_CliRadLWTarasova.o Rad_RRTMG.o Rad_UKMO.o IOLowLevel.o Shall_MasFlux.o Sfc_Ibis_BioGeoChemistry.o Sfc_Ibis_BioGeoPhysics.o Sfc_Ibis_Fiels.o Sfc_Ibis_Interface.o Sfc_SeaFlux_Interface.o Sfc_SeaFlux_COLA_Model.o Sfc_SeaFlux_WGFS_Model.o Sfc_SeaFlux_UKME_Model.o Sfc_SeaIceFlux_WRF_Model.o Sfc_SSiB.o Sfc_SiB2.o ShallowConvection.o Shall_Souza.o Shall_Tied.o Shall_UWShCu.o Shall_JHack.o StratCloudFraction.o Sizes.o SlabOceanModel.o Surface.o SfcPBLDriver.o Sfc_MellorYamada0.o Sfc_MellorYamada1.o TimeFilter.o TimeStepSL.o Utils.o Watches.o  Physics/Radiation/RRTMG/ext/rrtmg_sw/rrtmg_sw.a Physics/Radiation/RRTMG/ext/rrtmg_lw/rrtmg_lw.a
+make[1]: Leaving directory '/home/enver/modelos/BAM_1D/model/beta_source_enver3_NewRAS_transfer'
+(mv ParModel_MPI ../exec/ParModel_MPI)
+(rm -f Makefile.linux_gfortran)

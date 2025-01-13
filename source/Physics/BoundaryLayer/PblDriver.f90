@@ -27,6 +27,10 @@ MODULE PblDriver
        vdinti,&
        vdintr
 
+  USE Pbl_HostlagBoville_rna, ONLY : &
+       vdinti_rna,&
+       vdintr_rna
+
   USE Pbl_UniversityWashington, ONLY : &
        Init_Pbl_UniversityWashington, &
        vertical_diffusion_tend,&
@@ -103,6 +107,16 @@ CONTAINS
           pnats=pnats_lsc
           pcnst=pcnst_lsc
           CALL Init_Pbl_UniversityWashington(kmax,pcnst,pnats,sl)
+       END IF
+    ELSE IF(atmpbl==5)THEN
+       IF (microphys) THEN 
+          pnats=pnats_mic
+          pcnst=pcnst_mic+nClass
+          CALL vdinti_rna(ibMax,jbMax,kmax,sl, delsig, si(1:kMax+1),pnats,pcnst)
+       ELSE
+          pnats=pnats_lsc
+          pcnst=pcnst_lsc
+          CALL vdinti_rna(ibMax,jbMax,kmax,sl, delsig, si(1:kMax+1),pnats,pcnst)
        END IF
 
     ELSE   
@@ -571,7 +585,8 @@ CONTAINS
              tkemyj    (i,k)= tkemyj_local(i,k)
           END DO
        END DO
-       
+      
+ 
     ELSE IF( atmpbl == 3) THEN
        !
        !identifies land points
@@ -1326,6 +1341,375 @@ CONTAINS
        qpert(1:nCols)=qpert_local(1:nCols,1)
 
 
+    ELSE IF( atmpbl == 5) THEN
+       !
+       !identifies land points
+       !
+       DO i=1,nCols
+          IF(XLAND(i) <= 1.5_r8)THEN
+             !
+             ! LAND
+             !
+             FRLAND(i)= 1.0_r8
+          ELSE
+             !
+             ! SEA
+             !
+             FRLAND(i)= 0.0_r8
+          END IF
+       END DO
+
+       DT=2.0_r8 * delt
+       r100=100.0e0_r8 /gasr
+       l=kMax+1
+       DO k=1,kMAx
+          l=l-1
+          DO i=1,nCols    
+             !
+             ! Factor conversion to potention temperature
+             ! rk=gasr/cp
+             !              1.0e0_r8
+             !sigki (k)=---------------------
+             !            sl(k) ** rk
+             !
+             bps  (i,l)=sigki(k)           ! Exner Function
+             !
+             ! Invert the layers of model
+             !
+             T    (i,l  )=gt (i,k)
+             TH   (i,l  )=gt (i,k)*sigki(k) 
+             qm1  (i,l,1)=gq (i,k)
+             U    (i,l  )=gu (i,k)/SIN( colrad(i))
+             V    (i,l  )=gv (i,k)/SIN( colrad(i))
+          END DO
+       END DO
+       l=0
+       DO k=kMAx,1,-1
+          l=l+1
+          DO i=1,nCols    
+             pmidm1 (i,k) = 100.0_r8*gps(i)*sl(l) 
+             tmv1   (i,k) = gt(i,l)*(1.0_r8 + 0.608_r8*gq(i,l))
+          END DO
+       END DO
+       l=0
+       DO k=kMAx+1,1,-1
+          l=l+1
+          DO i=1,nCols    
+             pintm1 (i,k)=100.0_r8*gps(i)*si(l)
+          END DO
+       END DO
+       DO i=1,nCols
+          psur   (i) = gps(i)*100.0_r8
+          pstarln(i) = log(psur(i))
+          terr   (i) = MAX(topog(i),0.0_r8)   
+       END DO
+       DO k=1,kMax
+          DO i=1,nCols
+             press(i,k)=gps(i)*sl(k)
+             press(i,k)=press(i,k)*100.0_r8
+             tv(i,k)=gt(i,k)*(1.0_r8+0.608_r8*gq(i,k))
+          END DO
+       END DO    
+       DO k=1,kMax
+          DO i=1,nCols
+             rpdel(i,k) = 1.0_r8/(pintm1(i,k+1) - pintm1(i,k))
+          END DO
+       END DO    
+
+       do k=1,kMax-1
+          do i=1,nCols
+             rpdeli(i,k) = 1.0_r8/(pmidm1(i,k+1) - pmidm1(i,k))
+          end do
+       end do    
+       !
+       !  Convert j/kg to kg/mm3
+       !
+
+       DO i=1,nCols
+         ELFLX  (i) =  evap(i)
+         hfx    (i) =  sens(i)
+         !
+         !  J         N *m         Kg * m * m          m*m
+         !------ = --------- =------------------- = ---------= hvap = 2.5104e+6! latent heat of vaporization of water (J kg-1)
+         !  kg         kg          s*s Kg              s*s
+         !
+         ! (kg/m2/s)
+         !   W        J         N *m       Kg * m * m       s*s         kg 
+         ! ------ = ------- = --------- = ------------  * -------  = -------
+         !  m*m      m*m*s      m*m*s       s*s*s*m*m       m*m       M*m*s
+         !
+         !           W         kg   
+         !   =   ------ *  ------  =  LFlux / hvap
+         !          m*m        J  
+         qfx    (i)   = evap(i)/hl
+         cflx   (i,1) = qfx(i)
+
+       ENDDO
+       rbyg=gasr/grav*delsig(1)*0.5e0_r8
+       !
+       !  Calculate the distance between the surface and the first layer of the model
+       !
+       ze=0.0_r8
+       DO i=1,nCols
+          terr(i)   =MAX(topog(i),0.0_r8)   
+          IF(XLAND(i) >1.0_r8)THEN
+             delz    (i,1)=MAX((rbyg * tv(i,1) - htdisp(i)),0.5_r8)*0.75_r8
+             delzhalf(i,1)=MAX((rbyg * TSK(i)  - htdisp(i)),0.5_r8)*0.75_r8
+          ELSE
+             delz    (i,1)=MAX((rbyg * tv(i,1) - htdisp(i)),0.5_r8)      
+             delzhalf(i,1)=MAX((rbyg * TSK(i)  - htdisp(i)),0.5_r8)     
+          END IF
+          ze    (i,1)= delz(i,1)
+          ze    (i,1)=MAX(0.0_r8,ze(i,1))
+          zehalf(i,1)=delzhalf(i,1)
+          zehalf(i,1)=MAX(0.0_r8,zehalf(i,1))
+       END DO
+       DO k=2,kMax
+         DO i=1,nCols
+            delzhalf(i,k)=0.5_r8*gasr*(tv(i,k-1)+tv(i,k))* &
+                 LOG(pintm1(i,kMax+3-k)/pintm1(i,kMax+2-k))/grav
+            zehalf(i,k)=zehalf(i,k-1)+ delzhalf(i,k)
+         END DO
+       END DO
+       DO i=1,nCols
+          delzhalf(i,kMax+1)=gasr*(tv(i,kMax))* &
+               LOG(pintm1(i,3)/pintm1(i,2))/grav
+          zehalf(i,kMax+1)=zehalf(i,kMax)+ delzhalf(i,kMax+1)
+       END DO
+       DO k=1,kMax+1
+          DO i=1,nCols
+             zhalf(i,k) = zehalf(i,kMax+2-k)
+          END DO
+       END DO
+       DO k=2,kMax
+          DO i=1,nCols
+             delz(i,k)=0.5_r8*gasr*(tv(i,k-1)+tv(i,k))* &
+                  LOG(press(i,k-1)/press(i,k))/grav
+             ze(i,k)=ze(i,k-1)+ delz(i,k)
+          END DO
+       END DO
+       DO k=1,kMax
+          DO i=1,nCols
+              obklen (i) = 0.0_r8
+              phiminv(i) = 0.0_r8
+              phihinv(i) = 0.0_r8
+              zm     (i,k) = ze(i,kMax+1-k)
+             rino    (i,k) = 0.0_r8
+          END DO
+       END DO
+       DO k=1,kMax+1
+          DO i=1,nCols
+             tkemyj_local(i,kMax+2-k)=tkemyj(i,k)
+          END DO
+       END DO
+       IF (microphys) THEN
+          pcnst=3+nClass
+          DO i=1,nCols
+             cflx(i,2)=0.0_r8 !surface constituent ice flux (kg/m2/s)
+             cflx(i,3)=0.0_r8 !surface constituent liquid flux (kg/m2/s)
+          END DO
+          l=kMax+1
+          DO k=1,kMax
+             l=l-1
+             DO i=1,nCols
+                qm1(i,l,2)=  gice (i,k)!ice
+                qm1(i,l,3)=  gliq (i,k)!liq
+             END DO
+          END DO 
+          IF( nClass>0 .and. PRESENT(gvar))THEN
+             DO kk=1,nClass
+                DO i=1,nCols
+                   cflx(i,3+kk)=0.0_r8 !surface constituent ice flux (kg/m2/s)
+                END DO
+                l=kMax+1
+                DO k=1,kMax
+                   l=l-1
+                   DO i=1,nCols
+                      qm1(i,l,3+kk)=  gvar (i,k,kk)!ice
+                   END DO
+                END DO 
+             END DO
+          END IF
+       CALL vdintr_rna(&
+                 latco                         , &! INTENT(IN   ) plon ! number of longitudes
+                 nCols                         , &! INTENT(IN   ) plon ! number of longitudes
+                 nCols                         , &! INTENT(IN   ) plond ! slt extended domain longitude
+                 kMax                          , &! INTENT(IN   ) plev ! number of vertical levels
+                 pcnst                         , &! INTENT(IN   ) pcnst ! number of constituents (including water vapor)
+                 DT                            , &! INTENT(IN   ) ztodt ! 2 delta-t
+                 colrad      (1:nCols)         , &! INTENT(IN   ) Cosino the colatitude [radian]
+                 gl0         (1:nCols)         , &! INTENT(IN   ) Maximum mixing length l0 in blackerdar's formula [m]
+                 bstar       (1:nCols)         , &! INTENT(IN   ) surface_bouyancy_scale m s-2
+                 FRLAND      (1:nCols)         , &! INTENT(IN   ) Fraction Land [%]
+                 z0          (1:nCols)         , &! INTENT(IN   ) Rougosiness [m]
+                 LwCoolRate  (1:nCols,1:kMax)  , &! INTENT(IN   ) air_temperature_tendency_due_to_longwave [K s-1]
+                 LwCoolRateC (1:nCols,1:kMax)  , &! INTENT(IN   ) clear sky_air_temperature_tendency_lw [K s-1]
+                 cldtot      (1:nCols,1:kMax)  , &! INTENT(IN   ) cloud fraction [%]
+                 qliq        (1:nCols,1:kMax)  , &! INTENT(IN   ) cloud fraction [kg/kg]
+                 pmidm1      (1:nCols,1:kMax)  , &! INTENT(IN   ) pmidm1(plond,plev) ! midpoint pressures
+                 pintm1      (1:nCols,1:kMax+1), &! INTENT(IN   ) pintm1(plond,plev + 1)    ! interface pressures
+                 bps         (1:nCols,1:kMax)  , &! INTENT(IN   ) psomc(plond,plev)         ! (psm1/pmidm1)**cappa
+                 TH          (1:nCols,1:kMax)  , &! INTENT(IN   ) thm(plond,plev) ! potential temperature midpoints
+                 zm          (1:nCols,1:kMax)  , &! INTENT(IN   ) zm(plond,plev) ! midpoint geopotential height above sfc
+                 zhalf       (1:nCols,1:kMax+1), &! INTENT(IN   ) zhalf(plond,plev) ! interface pressures geopotential height
+                 psur        (1:nCols)         , &! INTENT(IN   ) surface pressure [mb]
+                 USTAR       (1:nCols)         , &! INTENT(IN   ) scale velocity turbulent [m/s]
+                 TSK         (1:nCols)         , &! INTENT(IN   ) surface temperature
+                 QSFC        (1:nCols)         , &! INTENT(IN   ) surface specific temperature
+                 rpdel       (1:nCols,1:kMax)  , &! INTENT(IN   ) rpdel(plond,plev)! 1./pdel (thickness between interfaces)
+                 rpdeli      (1:nCols,1:kMax)  , &! INTENT(IN   ) rpdeli(plond,plev)! 1./pdeli (thickness between midpoints)
+                 U           (1:nCols,1:kMax)  , &! INTENT(IN   ) um1(plond,plev)         ! u-wind input
+                 V           (1:nCols,1:kMax)  , &! INTENT(IN   ) vm1(plond,plev)         ! v-wind input
+                 T           (1:nCols,1:kMax)  , &! INTENT(IN   ) tm1(plond,plev)         ! temperature input
+                 taux        (1:nCols)         , &! INTENT(IN   ) taux(plond)                   ! x surface stress ![N/m**2]
+                 tauy        (1:nCols)         , &! INTENT(IN   ) tauy(plond)                   ! y surface stress ![N/m**2]
+                 HFX         (1:nCols)         , &! INTENT(IN   ) shflx(plond)! surface sensible heat flux (w/m2)
+                 cflx        (1:nCols,1:pcnst) , &! INTENT(IN   ) cflx(plond,pcnst)! surface constituent flux (kg/m2/s)
+                 qm1         (1:nCols,1:kMax,1:pcnst)  , &! INTENT(INOUT) qm1(plond,plev,pcnst)  ! initial/final constituent field
+                 RTHBLTEN    (1:nCols,1:kMax)          , &! INTENT(OUT  ) dtv(plond,plev)     ! temperature tendency (heating)
+                 RQVBLTEN    (1:nCols,1:kMax,1:pcnst)  , &! INTENT(OUT  ) dqv(plond,plev,pcnst)
+                 RUBLTEN     (1:nCols,1:kMax)  , &! INTENT(OUT  ) duv(plond,plev)     ! u-wind tendency
+                 RVBLTEN     (1:nCols,1:kMax)  , &! INTENT(OUT  ) dvv(plond,plev)     ! v-wind tendency
+                 up1         (1:nCols,1:kMax)  , &! INTENT(OUT  ) up1(plond,plev)     ! u-wind after vertical diffusion
+                 vp1         (1:nCols,1:kMax)  , &! INTENT(OUT  ) vp1(plond,plev)     ! v-wind after vertical diffusion
+                 pblh        (1:nCols)         , &! INTENT(OUT  ) pblh(plond)! planetary boundary layer height
+                 rino        (1:nCols,1:kMax)  , &! INTENT(INOUT) bulk Richardson no. from level to ref lev
+                 tpert       (1:nCols)         , &! INTENT(OUT  ) tpert(plond)! convective temperature excess
+                 qpert_local (1:nCols,1:pcnst) , &! INTENT(OUT  ) qpert(plond,pcnst)! convective humidity and constituent excess
+                 tkemyj_local(1:nCols,1:kMax+1), &! INTENT(INOUT) Turbulent kinetic Energy [m/s]^2
+                 kvh         (1:nCols,1:kMax+1), &! INTENT(OUT  ) Heat Coeficient Difusivity 
+                 kvm         (1:nCols,1:kMax+1), &! INTENT(OUT  ) Momentun Coeficient Difusivity 
+                 obklen      (1:nCols)         , &! INTENT(OUT  ) Heat Coeficient Difusivity 
+                 phiminv     (1:nCols)         , &! INTENT(OUT  ) Momentum Stability Function 
+                 phihinv     (1:nCols)         , &! INTENT(OUT  ) Heat Stability Function 
+                 tstar       (1:nCols)         , &
+                 wstar       (1:nCols)         )
+        ELSE
+         pcnst=1
+          DO i=1,nCols
+             cflx(i,2)=0.0_r8 !surface constituent ice flux (kg/m2/s)
+             cflx(i,3)=0.0_r8 !surface constituent liquid flux (kg/m2/s)
+          END DO
+          l=kMax+1
+          DO k=1,kMax
+             l=l-1
+             DO i=1,nCols
+                qm1(i,l,2)=  0.0_r8!ice
+                qm1(i,l,3)=  0.0_r8!liq
+             END DO
+          END DO 
+
+            CALL vdintr_rna(&
+                 latco                         , &! INTENT(IN   ) plon ! number of longitudes
+                 nCols                         , &! INTENT(IN   ) plon ! number of longitudes
+                 nCols                         , &! INTENT(IN   ) plond ! slt extended domain longitude
+                 kMax                          , &! INTENT(IN   ) plev ! number of vertical levels
+                 pcnst                         , &! INTENT(IN   ) pcnst ! number of constituents (including water vapor)
+                 DT                            , &! INTENT(IN   ) ztodt ! 2 delta-t
+                 colrad      (1:nCols)         , &! INTENT(IN   ) Cosino the colatitude [radian]
+                 gl0         (1:nCols)         , &! INTENT(IN   ) Maximum mixing length l0 in blackerdar's formula [m]
+                 bstar       (1:nCols)         , &! INTENT(IN   ) surface_bouyancy_scale m s-2
+                 FRLAND      (1:nCols)         , &! INTENT(IN   ) Fraction Land [%]
+                 z0          (1:nCols)         , &! INTENT(IN   ) Rougosiness [m]
+                 LwCoolRate  (1:nCols,1:kMax)  , &! INTENT(IN   ) air_temperature_tendency_due_to_longwave [K s-1]
+                 LwCoolRateC (1:nCols,1:kMax)  , &! INTENT(IN   ) clear sky_air_temperature_tendency_lw [K s-1]
+                 cldtot      (1:nCols,1:kMax)  , &! INTENT(IN   ) cloud fraction [%]
+                 qliq        (1:nCols,1:kMax)  , &! INTENT(IN   ) cloud fraction [kg/kg]
+                 pmidm1      (1:nCols,1:kMax)  , &! INTENT(IN   ) pmidm1(plond,plev) ! midpoint pressures
+                 pintm1      (1:nCols,1:kMax+1), &! INTENT(IN   ) pintm1(plond,plev + 1)    ! interface pressures
+                 bps         (1:nCols,1:kMax)  , &! INTENT(IN   ) psomc(plond,plev)         ! (psm1/pmidm1)**cappa
+                 TH          (1:nCols,1:kMax)  , &! INTENT(IN   ) thm(plond,plev) ! potential temperature midpoints
+                 zm          (1:nCols,1:kMax)  , &! INTENT(IN   ) zm(plond,plev) ! midpoint geopotential height above sfc
+                 zhalf       (1:nCols,1:kMax+1), &! INTENT(IN   ) zhalf(plond,plev) ! interface pressures geopotential height
+                 psur        (1:nCols)         , &! INTENT(IN   ) surface pressure [mb]
+                 USTAR       (1:nCols)         , &! INTENT(IN   ) scale velocity turbulent [m/s]
+                 TSK         (1:nCols)         , &! INTENT(IN   ) surface temperature
+                 QSFC        (1:nCols)         , &! INTENT(IN   ) surface specific temperature
+                 rpdel       (1:nCols,1:kMax)  , &! INTENT(IN   ) rpdel(plond,plev)! 1./pdel (thickness between interfaces)
+                 rpdeli      (1:nCols,1:kMax)  , &! INTENT(IN   ) rpdeli(plond,plev)! 1./pdeli (thickness between midpoints)
+                 U           (1:nCols,1:kMax)  , &! INTENT(IN   ) um1(plond,plev)         ! u-wind input
+                 V           (1:nCols,1:kMax)  , &! INTENT(IN   ) vm1(plond,plev)         ! v-wind input
+                 T           (1:nCols,1:kMax)  , &! INTENT(IN   ) tm1(plond,plev)         ! temperature input
+                 taux        (1:nCols)         , &! INTENT(IN   ) taux(plond)                   ! x surface stress ![N/m**2]
+                 tauy        (1:nCols)         , &! INTENT(IN   ) tauy(plond)                   ! y surface stress ![N/m**2]
+                 HFX         (1:nCols)         , &! INTENT(IN   ) shflx(plond)! surface sensible heat flux (w/m2)
+                 cflx        (1:nCols,1:pcnst) , &! INTENT(IN   ) cflx(plond,pcnst)! surface constituent flux (kg/m2/s)
+                 qm1         (1:nCols,1:kMax,1:pcnst), &! INTENT(IN) qm1(plond,plev,pcnst)  ! initial/final constituent field
+                 RTHBLTEN    (1:nCols,1:kMax)  , &! INTENT(OUT  ) dtv(plond,plev)     ! temperature tendency (heating)
+                 RQVBLTEN    (1:nCols,1:kMax,1:pcnst) , &! INTENT(OUT  ) dqv(plond,plev,pcnst)
+                 RUBLTEN     (1:nCols,1:kMax)  , &! INTENT(OUT  ) duv(plond,plev)     ! u-wind tendency
+                 RVBLTEN     (1:nCols,1:kMax)  , &! INTENT(OUT  ) dvv(plond,plev)     ! v-wind tendency
+                 up1         (1:nCols,1:kMax)  , &! INTENT(OUT  ) up1(plond,plev)     ! u-wind after vertical diffusion
+                 vp1         (1:nCols,1:kMax)  , &! INTENT(OUT  ) vp1(plond,plev)     ! v-wind after vertical diffusion
+                 pblh        (1:nCols)         , &! INTENT(OUT  ) pblh(plond)! planetary boundary layer height
+                 rino        (1:nCols,1:kMax)  , &! INTENT(INOUT) bulk Richardson no. from level to ref lev
+                 tpert       (1:nCols)         , &! INTENT(OUT  ) tpert(plond)! convective temperature excess
+                 qpert_local (1:nCols,1:pcnst)       , &! INTENT(OUT  ) qpert(plond,pcnst)! convective humidity and constituent excess
+                 tkemyj_local(1:nCols,1:kMax+1), &! INTENT(INOUT) Turbulent kinetic Energy [m/s]^2
+                 kvh         (1:nCols,1:kMax+1), &! INTENT(OUT  ) Heat Coeficient Difusivity 
+                 kvm         (1:nCols,1:kMax+1), &! INTENT(OUT  ) Momentun Coeficient Difusivity 
+                 obklen      (1:nCols)         , &! INTENT(OUT  ) Heat Coeficient Difusivity 
+                 phiminv     (1:nCols)         , &! INTENT(OUT  ) Momentum Stability Function 
+                 phihinv     (1:nCols)         , &! INTENT(OUT  ) Heat Stability Function 
+                 tstar       (1:nCols)         , &
+                 wstar       (1:nCols)         )
+
+
+        END IF
+
+       IF (microphys) THEN
+          l=kMax+1
+          DO k=1,kMAx
+             l=l-1
+             DO i=1,nCols 
+                qmtx(i,l,3) = RQVBLTEN(i,k,1)
+                qmtx(i,l,4) = RQVBLTEN(i,k,2)  !ice
+                qmtx(i,l,5) = RQVBLTEN(i,k,3)  !liq
+                tmtx(i,l,3) = RTHBLTEN(i,k)/bps(i,k)
+                umtx(i,l,3) = RUBLTEN (i,k)
+                umtx(i,l,4) = RVBLTEN (i,k)
+             END DO
+          END DO
+          IF( nClass>0 .and. PRESENT(gvar))THEN
+             DO kk=1,nClass
+                l=kMax+1
+                DO k=1,kMAx
+                   l=l-1
+                   DO i=1,nCols 
+                      qmtx(i,l,5+kk) = RQVBLTEN(i,k,3+kk)  !liq
+                   END DO
+                END DO
+             END DO
+          END IF
+       ELSE
+          l=kMax+1
+          DO k=1,kMAx
+             l=l-1
+             DO i=1,nCols 
+                qmtx(i,l,3) = RQVBLTEN(i,k,1)
+                qmtx(i,l,4) = 0.0_r8    !ice
+                qmtx(i,l,5) = 0.0_r8    !liq
+                tmtx(i,l,3) = RTHBLTEN(i,k)/bps(i,k)
+                umtx(i,l,3) = RUBLTEN (i,k)
+                umtx(i,l,4) = RVBLTEN (i,k)
+             END DO
+          END DO
+       END IF
+
+       DO k=1,kMax+1
+          DO i=1,nCols
+             PBL_CoefKm(i,k)= kvm (i,kMax+2-k)
+             PBL_CoefKh(i,k)= kvh (i,kMax+2-k)
+          END DO
+       END DO
+       DO k=1,kMax+1
+          DO i=1,nCols
+             tkemyj    (i,k)=tkemyj_local(i,kMax+2-k)
+          END DO
+       END DO
+
+       qpert(1:nCols)=qpert_local(1:nCols,1)
+
     ELSE
        WRITE(*,*)'its not set pbl parametrization'
        STOP
@@ -1416,7 +1800,7 @@ CONTAINS
       
       IF(dodia(nDiag_tkemyj)) CALL updia(tkemyj(1:nCols,1:kMax),nDiag_tkemyj,latco)
 
-      IF(atmpbl == 3) THEN
+      IF(atmpbl == 3 .or. atmpbl == 5) THEN
          
          IF(dodia(nDiag_khdpbl)) THEN
             DO k=1,kMax

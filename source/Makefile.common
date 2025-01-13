@@ -57,6 +57,7 @@ OBJ= \
 	Parallelism.o \
 	PBL_Entrain.o \
 	Pbl_HostlagBoville.o \
+	Pbl_HostlagBoville_rna.o \
 	Pbl_MellorYamada0.o \
 	Pbl_MellorYamada1.o \
 	Pbl_UniversityWashington.o \
@@ -255,6 +256,10 @@ Pbl_HostlagBoville.o	:	Physics/BoundaryLayer/HostlagBoville/Pbl_HostlagBoville.f
 			Constants.o Options.o Parallelism.o
 	$(F90) -c     Physics/BoundaryLayer/HostlagBoville/Pbl_HostlagBoville.f90
 
+Pbl_HostlagBoville_rna.o	:	Physics/BoundaryLayer/HostlagBoville_rna/Pbl_HostlagBoville_rna.f90 PBL_Entrain.o \
+			Constants.o Options.o Parallelism.o
+	$(F90) -c     Physics/BoundaryLayer/HostlagBoville_rna/Pbl_HostlagBoville_rna.f90
+
 Pbl_MellorYamada0.o	:	Physics/BoundaryLayer/MellorYamada0/Pbl_MellorYamada0.f90 Constants.o Options.o
 	$(F90) -c    Physics/BoundaryLayer/MellorYamada0/Pbl_MellorYamada0.f90
 
@@ -268,7 +273,7 @@ Pbl_UniversityWashington.o	:	Physics/BoundaryLayer/ParkBretherton/Pbl_University
 
 PblDriver.o	:	Physics/BoundaryLayer/PblDriver.f90  Constants.o Options.o \
 			Diagnostics.o GridHistory.o Pbl_MellorYamada0.o Pbl_UniversityWashington.o\
-		        Pbl_MellorYamada1.o  Pbl_HostlagBoville.o Parallelism.o 
+		        Pbl_MellorYamada1.o  Pbl_HostlagBoville.o Pbl_HostlagBoville_rna.o Parallelism.o 
 	$(F90) -c Physics/BoundaryLayer/PblDriver.f90
 
 

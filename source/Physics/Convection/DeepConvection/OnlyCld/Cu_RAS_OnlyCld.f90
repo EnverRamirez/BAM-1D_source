@@ -518,24 +518,24 @@ CONTAINS
           DO j=1,SIZE(harvest)
              IF(sstat%mti.GE.n) THEN
                 DO kk=0,n-m-1
-                   y=INT(IOR(IAND(sstat%mt(kk),umask),IAND(sstat%mt(kk+1),lmask)),KIND=i4)
-                   sstat%mt(kk)=INT(IEOR(IEOR(sstat%mt(kk+m),ISHFT(y,-1)), &
+                   y=INT(IOR(IAND(INT(sstat%mt(kk),KIND(umask)),umask),IAND(INT(sstat%mt(kk+1),KIND(lmask)),lmask)),KIND=i4)
+                   sstat%mt(kk)=INT(IEOR(INT(IEOR(INT(sstat%mt(kk+m),KIND(y)),ISHFT(y,-1)),KIND(mag01)), &
                         &                           mag01(IAND(y,1))),kind=i4)
                 ENDDO
                 DO kk=n-m,n-2
-                   y=INT(IOR(IAND(sstat%mt(kk),umask),IAND(sstat%mt(kk+1),lmask)),KIND=i4)
-                   sstat%mt(kk)=INT(IEOR(IEOR(sstat%mt(kk+(m-n)),ISHFT(y,-1)), &
+                   y=INT(IOR(IAND(INT(sstat%mt(kk),KIND(umask)),umask),IAND(INT(sstat%mt(kk+1),KIND(lmask)),lmask)),KIND=i4)
+                   sstat%mt(kk)=INT(IEOR(INT(IEOR(INT(sstat%mt(kk+(m-n)),KIND(y)),ISHFT(y,-1)),KIND(mag01)), &
                         &                           mag01(IAND(y,1))),KIND=i4)
                 ENDDO
-                y=INT(IOR(IAND(sstat%mt(n-1),umask),IAND(sstat%mt(0),lmask)),KIND=i4)
-                sstat%mt(n-1)=INT(IEOR(IEOR(sstat%mt(m-1),ISHFT(y,-1)), &
+                y=INT(IOR(IAND(INT(sstat%mt(n-1),KIND(umask)),umask),IAND(INT(sstat%mt(0),KIND(lmask)),lmask)),KIND=i4)
+                sstat%mt(n-1)=INT(IEOR(INT(IEOR(INT(sstat%mt(m-1),KIND(y)),ISHFT(y,-1)),KIND(mag01)), &
                      &                      mag01(IAND(y,1))),KIND=i4)
                 sstat%mti=0
              ENDIF
              y=sstat%mt(sstat%mti)
              y=IEOR(y,tshftu)
-             y=INT(IEOR(y,IAND(tshfts,tmaskb)),KIND=i4)
-             y=INT(IEOR(y,IAND(tshftt,tmaskc)),KIND=i4)
+             y=INT(IEOR(INT(y,KIND(tmaskb)),IAND(INT(tshfts,KIND(tmaskb)),tmaskb)),KIND=i4)
+             y=INT(IEOR(INT(y,KIND(tmaskc)),IAND(INT(tshftt,KIND(tmaskc)),tmaskc)),KIND=i4)
              y=IEOR(y,tshftl)
              IF(y.LT.0) THEN
                 harvest(j)=(REAL(y,KIND=r8)+twop32)*twop32m1i

@@ -20,6 +20,11 @@ MODULE Pbl_HostlagBoville_rna
       Wgh2       , &!1.0_r8/3.0_r8 ! pbl Mellor Yamada 2.0
       Wgh3         !1.0_r8/3.0_r8 ! pbl Mellor Yamada 2.5 
 
+!implementing rna
+  USE rna_class
+  USE rna_arch
+  USE test_rna
+
   IMPLICIT NONE
   SAVE
   PRIVATE
@@ -1019,6 +1024,11 @@ CONTAINS
     !
     !---------------------------Local workspace-----------------------------
     !
+    !REAL(KIND=r8), INTENT(INOUT) :: PBLH_HSBO_rna(plond) !Enver later PBLH_HSBO_rna could be an argument of the routine
+    REAL(KIND=r8)   :: PBLH_HSBO_rna(plond)  !Enver here treated as local
+    character(120)  :: epath, efinput
+    integer         :: fileid
+
     REAL(KIND=r8) cah   (plond,plev)        ! -upper diag for heat and constituts
     REAL(KIND=r8) cam   (plond,plev)        ! -upper diagonal for momentum
     REAL(KIND=r8) cch   (plond,plev)        ! -lower diag for heat and constits
@@ -1071,6 +1081,11 @@ CONTAINS
     rcpair  =0.0_r8;   ztodtgor =0.0_r8;  gorsq =0.0_r8;  dubot =0.0_r8;  dvbot =0.0_r8;  dtbot =0.0_r8
     dqbot =0.0_r8;  thx   =0.0_r8;  thv   =0.0_r8;  qmx   =0.0_r8;  zeh   =0.0_r8;  zem   =0.0_r8;  termh =0.0_r8;  termm =0.0_r8
     kvn   =0.0_r8;  ksx   =0.0_r8;  ksy   =0.0_r8;  sufac =0.0_r8;  svfac =0.0_r8;nval=0;ktopbl=0;ktopblmn=0
+
+    epath="/home/enver/work/Research/Implementing_rna/ArtificialNeuralNetworkForPBL/"
+    efinput=trim(epath)//'entrada_teste.dat'
+    fileid=661
+    open(fileid,file=efinput,action='write',status='replace')
     !
     !-----------------------------------------------------------------------
     !
@@ -1306,6 +1321,31 @@ CONTAINS
                 phihinv , &
                 tstar   , &
                 wstar     )
+
+   write(fileid,*) thm, qm1, zm, um1, vm1, tm1, pmidm1, kvf, shflx, taux, tauy, tsk, qsfc, psomc 
+   CALL pblh_rna_old
+   close(fileid)
+   !CALL pblh_rna (
+   !           plond   , &! INTENT(IN   ) :: plond         ! slt extended domain longitude
+   !           plev    , &! INTENT(IN   ) ::  plev          ! number of vertical levels
+   !           pcnst   , &! INTENT(IN   ) :: pcnst         ! number of constituents (including water vapor)
+   !           thm     , &! INTENT(IN   ) ::  th(plond,plev)               ! potential temperature [K]
+   !           qm1     , &! INTENT(IN   ) ::  q(plond,plev,pcnst)     ! specific humidity [kg/kg]
+   !           zm      , &! INTENT(IN   ) ::  z(plond,plev)               ! height above surface [m]
+   !           um1     , &! INTENT(IN   ) ::  u(plond,plev)               ! windspeed x-direction [m/s]
+   !           vm1     , &! INTENT(IN   ) ::  v(plond,plev)               ! windspeed y-direction [m/s]
+   !           tm1     , &! INTENT(IN   ) ::  t(plond,plev)               ! temperature (used for density)
+   !           pmidm1  , &! INTENT(IN   ) ::  pmid(plond,plev)        ! midpoint pressures
+   !           kvf     , &! INTENT(IN   ) ::  kvf(plond,plev + 1)     ! free atmospheric eddy diffsvty [m2/s]
+   !           shflx   , &! INTENT(IN   ) ::  shflx(plond)               ! surface heat flux (W/m2)
+   !           taux    , &! INTENT(IN   ) ::  taux(plond)               ! surface u stress (N)
+   !           tauy    , &! INTENT(IN   ) ::  tauy(plond)               ! surface v stress (N)
+   !           tsk     , &
+   !           qsfc    , &
+   !           psomc   , && 
+   !           PBLH_HSBO_rna)  ! INTENT(OUT  ) ::  pblh(plond)               ! boundary-layer height [m]
+
+    !print*, 'Comparing PBLH_HSBO and PBLH_HSBO_rna: ', PBLH_HSBO, PBLH_HSBO_rna
 
     !
     !     Wgh1=0.333!1.0_r8/3.0_r8 ! pbl Hostlag Boville

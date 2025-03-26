@@ -98,7 +98,9 @@ OBJ= \
 	TimeFilter.o \
 	TimeStepSL.o \
 	Utils.o  \
-	Watches.o
+	Watches.o \
+	rna_arch.o \
+	pblh_rna.o
   
 $(EXEC)	: $(OBJ)
 	$(F90) -o $(EXEC) $(LOADFLAG) $(OBJ)  $(LIB) $(LIB2)
@@ -256,8 +258,15 @@ Pbl_HostlagBoville.o	:	Physics/BoundaryLayer/HostlagBoville/Pbl_HostlagBoville.f
 			Constants.o Options.o Parallelism.o
 	$(F90) -c     Physics/BoundaryLayer/HostlagBoville/Pbl_HostlagBoville.f90
 
+rna_arch.o   : Physics/BoundaryLayer/HostlagBoville_rna/rna_arch/rna_arch.f90
+	$(F90) -c Physics/BoundaryLayer/HostlagBoville_rna/rna_arch/rna_arch.f90
+
+pblh_rna.o   : Physics/BoundaryLayer/HostlagBoville_rna/rna_arch/pblh_rna.f90 rna_arch.o
+	$(F90) -c Physics/BoundaryLayer/HostlagBoville_rna/rna_arch/pblh_rna.f90
+
+
 Pbl_HostlagBoville_rna.o	:	Physics/BoundaryLayer/HostlagBoville_rna/Pbl_HostlagBoville_rna.f90 PBL_Entrain.o \
-			Constants.o Options.o Parallelism.o
+			Constants.o Options.o Parallelism.o rna_arch.o pblh_rna.o
 	$(F90) -c     Physics/BoundaryLayer/HostlagBoville_rna/Pbl_HostlagBoville_rna.f90
 
 Pbl_MellorYamada0.o	:	Physics/BoundaryLayer/MellorYamada0/Pbl_MellorYamada0.f90 Constants.o Options.o
